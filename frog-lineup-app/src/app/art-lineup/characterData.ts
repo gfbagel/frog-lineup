@@ -224,7 +224,7 @@ export const characterList: Character[] = [
     },
     age: 0,
     serviceYrs: 6,
-    height: 270,
+    height: 27,
     rank: Rank.CORPORAL,
     isActiveService: true,
   },
