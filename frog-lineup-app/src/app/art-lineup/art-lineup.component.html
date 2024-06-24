@@ -6,15 +6,18 @@
       (mouseenter)="onImgHover(index)"
       (mouseleave)="onImgLeave()"
     >
+      <!-- [style.bottom]="character.height ? character.height + 'px' : undefined" -->
+      <div #line class="line"></div>
       <img
+        #img
         class="image"
         [alt]="character.name"
-        [src]="'./characterImages/' + character"
+        [src]="'img/' + character.img"
       />
-      <div>
+
+      <!-- <div>
         {{ character.name }}
-      </div>
-      <div class="line" [style.bottom]="character.height + 'px'"></div>
+      </div> -->
     </div>
   }
 </div>
