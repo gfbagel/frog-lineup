@@ -51,18 +51,18 @@ export enum StatMod {
 export enum Rank {
   NONE,
   PRIVATE_IN_TRAINING,
+  PRIVATE_3RD,
   PRIVATE,
-  PRIVATE_FC,
-  CORPORAL,
+  PRIVATE_1ST,
   CORPORAL_LANCE,
+  CORPORAL,
   SERGEANT,
   SERGEANT_MAJOR,
-  MAJOR,
+  LIEUTENANT_2ND,
   CAPTAIN,
+  MAJOR,
   OFFICER_WARRANT,
   KNIGHT, //???
-  PRIVATE_TC,
-  LIEUTENANT_2ND,
 }
 
 export const averageStatThreshold = 3;

@@ -40,7 +40,7 @@ export const characterList: Character[] = [
     age: 0,
     serviceYrs: 1,
     height: 12,
-    rank: Rank.PRIVATE_FC,
+    rank: Rank.PRIVATE_1ST,
     isActiveService: true,
   },
   {
@@ -453,7 +453,7 @@ export const characterList: Character[] = [
     age: 0,
     serviceYrs: 1,
     height: 19,
-    rank: Rank.PRIVATE_TC,
+    rank: Rank.PRIVATE_3RD,
     isActiveService: true,
   },
   {
