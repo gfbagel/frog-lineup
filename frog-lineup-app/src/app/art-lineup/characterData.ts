@@ -339,7 +339,7 @@ export const characterList: Character[] = [
     age: 0,
     serviceYrs: 0,
     height: 17,
-    rank: Rank.KNIGHT,
+    rank: Rank.NONE,
     isActiveService: true,
   },
   {
