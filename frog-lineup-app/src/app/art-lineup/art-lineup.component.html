@@ -1,5 +1,9 @@
 <div class="lineup">
-  @for (character of characterList; track character; let index = $index) {
+  @for (
+    character of displayedCharacterList;
+    track character;
+    let index = $index
+  ) {
     <div
       #imgContainer
       [tabindex]="index"

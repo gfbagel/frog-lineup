@@ -32,7 +32,8 @@ export class ArtLineupComponent implements AfterViewInit {
 
   @Output() characterClicked = new EventEmitter<Character>();
 
-  characterList: Character[] = characterList;
+  _originalCharacterList: Character[] = characterList;
+  displayedCharacterList: Character[] = [...this._originalCharacterList];
 
   ngAfterViewInit() {
     this.imgs?.forEach(async (img, idx) => {
@@ -75,32 +76,72 @@ export class ArtLineupComponent implements AfterViewInit {
     this.characterClicked.emit(character);
   }
 
+  _calculateStatFinal(character: Character, statToGet: keyof Stats) {
+    let baseStatVal = character.stats[statToGet];
+    if (character.ability && character.ability.statAffecting === statToGet) {
+      baseStatVal += character.ability.statValue;
+    }
+    if (character.weakness && character.weakness.statAffecting === statToGet) {
+      baseStatVal -= character.weakness.statValue;
+    }
+    return baseStatVal;
+  }
+
   sortCharacters(event: {
     sortType: SortType | null;
     sortStat: keyof Stats | null;
+    hideNAChars: boolean | null;
   }) {
+    let subList = [...this._originalCharacterList];
+
     console.log(event);
     if (event.sortType === SortType.STAT) {
       if (event.sortStat !== null) {
-        this.characterList.sort((a, b) => {
-          return a.stats[event.sortStat!] - b.stats[event.sortStat!];
+        subList = subList.filter((f) => f.stats[event.sortStat!]);
+        this.displayedCharacterList = subList.sort((a, b) => {
+          return (
+            this._calculateStatFinal(a, event.sortStat!) -
+            this._calculateStatFinal(b, event.sortStat!)
+          );
         });
       } else {
         console.error('null sortStat when sorting by stat...');
       }
     } else {
-      this.characterList.sort((a, b) => {
-        switch (event.sortType) {
-          case SortType.HEIGHT:
+      switch (event.sortType) {
+        case SortType.HEIGHT:
+          subList = subList.filter((f) => f.height);
+          this.displayedCharacterList = subList.sort((a, b) => {
             return a.height - b.height;
-          case SortType.RANK:
+          });
+          break;
+        case SortType.RANK:
+          subList = subList.filter((f) => f.rank);
+          this.displayedCharacterList = subList.sort((a, b) => {
             return a.rank - b.rank;
-          case SortType.SENIORITY:
+          });
+          break;
+        case SortType.SENIORITY:
+          subList = subList.filter((f) => f.serviceYrs);
+          this.displayedCharacterList = subList.sort((a, b) => {
+            return a.serviceYrs - b.serviceYrs;
+          });
+          break;
+        case SortType.AGE:
+          subList = subList.filter((f) => f.age);
+          this.displayedCharacterList = subList.sort((a, b) => {
             return a.age - b.age;
-          default:
-            return 0;
-        }
-      });
+          });
+          break;
+        case SortType.NAME:
+          subList = subList.filter((f) => f.name);
+          this.displayedCharacterList = subList.sort((a, b) => {
+            return a.name.localeCompare(b.name);
+          });
+          break;
+        default:
+          break;
+      }
     }
   }
 }

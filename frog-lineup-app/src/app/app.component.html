@@ -7,7 +7,7 @@
     <app-sort-bar (sortChanged)="updateLineUpSort($event)"></app-sort-bar>
   </div>
   <mat-divider></mat-divider>
-  <div>
+  <div style="overflow: auto">
     <app-art-lineup
       #artLineup
       (characterClicked)="onCharacterClicked($event)"

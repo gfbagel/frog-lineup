@@ -35,6 +35,7 @@ export class AppComponent {
   updateLineUpSort(event: {
     sortType: SortType | null;
     sortStat: keyof Stats | null;
+    hideNAChars: boolean | null;
   }) {
     console.log(event);
     this.artLineup?.sortCharacters(event);

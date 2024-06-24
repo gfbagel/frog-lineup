@@ -1,21 +1,31 @@
-<div>
-  <mat-button-toggle-group
-    [formControl]="sortTypeCtrl"
-    (change)="onSortChange()"
+<div style="display: flex; gap: 20px; align-items: center">
+  <mat-slide-toggle checked [formControl]="hideNACharsCtrl"
+    >Hide N/A</mat-slide-toggle
   >
-    <mat-button-toggle [value]="SortTypeEnum.RANK">Rank</mat-button-toggle>
-    <mat-button-toggle [value]="SortTypeEnum.SENIORITY"
-      >Seniority</mat-button-toggle
-    >
-    <mat-button-toggle [value]="SortTypeEnum.HEIGHT">Height</mat-button-toggle>
-    <mat-button-toggle [value]="SortTypeEnum.STAT">Stat</mat-button-toggle>
-  </mat-button-toggle-group>
 
-  <mat-form-field style="padding-left: 20px">
+  <div>
+    <mat-button-toggle-group
+      [formControl]="sortTypeCtrl"
+      (change)="onSortChange()"
+    >
+      <mat-button-toggle [value]="SortTypeEnum.NAME">Name</mat-button-toggle>
+      <mat-button-toggle [value]="SortTypeEnum.AGE">Age</mat-button-toggle>
+      <mat-button-toggle [value]="SortTypeEnum.RANK">Rank</mat-button-toggle>
+      <mat-button-toggle [value]="SortTypeEnum.SENIORITY"
+        >Seniority</mat-button-toggle
+      >
+      <mat-button-toggle [value]="SortTypeEnum.HEIGHT"
+        >Height</mat-button-toggle
+      >
+      <mat-button-toggle [value]="SortTypeEnum.STAT">Stat</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <mat-form-field>
     <!-- <mat-label>Select Stat</mat-label> -->
     <mat-select
       [formControl]="sortingStatCtrl"
-      (valueChange)="onSortStatChange()"
+      (selectionChange)="onSortStatChange()"
     >
       @for (stat of statsNames; track stat) {
         <mat-option [value]="stat.value">{{ stat.label }}</mat-option>

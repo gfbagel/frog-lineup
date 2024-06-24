@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Output,
+  ViewChild,
+  AfterViewInit,
+} from '@angular/core';
 import {
   MatButtonToggleGroup,
   MatButtonToggleModule,
@@ -8,12 +14,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { Stats } from '../character-details/character-details.component';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 export enum SortType {
+  NAME,
   RANK,
   SENIORITY,
   HEIGHT,
   STAT,
+  AGE,
 }
 
 export interface StatDropDownOption {
@@ -71,22 +80,26 @@ export const statsNames: StatDropDownOption[] = [
     MatButtonToggleModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSlideToggleModule,
   ],
   templateUrl: './sort-bar.component.html',
   styleUrl: './sort-bar.component.scss',
 })
-export class SortBarComponent {
+export class SortBarComponent implements AfterViewInit {
   @ViewChild('sortingToggleBtnGrp') sortingToggleBtnGrp?: MatButtonToggleGroup;
   @Output() sortChanged = new EventEmitter<{
     sortType: SortType | null;
     sortStat: keyof Stats | null;
+    hideNAChars: boolean | null;
   }>();
+  hideNACharsCtrl = new FormControl(true);
 
   onSortStatChange() {
     console.log('foo');
     this.sortChanged.emit({
       sortStat: this.sortingStatCtrl.value,
       sortType: this.sortTypeCtrl.value,
+      hideNAChars: this.hideNACharsCtrl.value,
     });
   }
   onSortChange() {
@@ -99,11 +112,16 @@ export class SortBarComponent {
     this.sortChanged.emit({
       sortStat: this.sortingStatCtrl.value,
       sortType: this.sortTypeCtrl.value,
+      hideNAChars: this.hideNACharsCtrl.value,
     });
   }
 
+  ngAfterViewInit() {
+    this.onSortChange();
+  }
+
   SortTypeEnum = SortType;
-  sortTypeCtrl = new FormControl<SortType>(SortType.RANK);
+  sortTypeCtrl = new FormControl<SortType>(SortType.NAME);
   sortingStatCtrl = new FormControl<keyof Stats>({
     disabled: !this.isSortingByStat,
     value: 'strength',
