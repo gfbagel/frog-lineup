@@ -21,7 +21,9 @@ export interface Character {
   age: number;
   height: number;
   rank: Rank;
+  serviceYrs: number;
   img?: string;
+  isActiveService: boolean;
 }
 
 export interface Stats {
@@ -47,10 +49,20 @@ export enum StatMod {
 }
 
 export enum Rank {
+  NONE,
+  PRIVATE_IN_TRAINING,
   PRIVATE,
+  PRIVATE_FC,
   CORPORAL,
+  CORPORAL_LANCE,
   SERGEANT,
+  SERGEANT_MAJOR,
   MAJOR,
+  CAPTAIN,
+  OFFICER_WARRANT,
+  KNIGHT, //???
+  PRIVATE_TC,
+  LIEUTENANT_2ND,
 }
 
 export const averageStatThreshold = 3;
@@ -87,6 +99,8 @@ export const noDataCharacter: Character = {
   age: 0,
   height: 0,
   rank: Rank.SERGEANT,
+  serviceYrs: 0,
+  isActiveService: true,
 };
 @Component({
   selector: 'app-character-details',
