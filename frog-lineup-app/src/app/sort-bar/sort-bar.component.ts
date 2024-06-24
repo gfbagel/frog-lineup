@@ -91,6 +91,11 @@ export class SortBarComponent {
   }
   onSortChange() {
     console.log('foo2');
+    if (this.isSortingByStat) {
+      this.sortingStatCtrl.enable();
+    } else {
+      this.sortingStatCtrl.disable();
+    }
     this.sortChanged.emit({
       sortStat: this.sortingStatCtrl.value,
       sortType: this.sortTypeCtrl.value,
