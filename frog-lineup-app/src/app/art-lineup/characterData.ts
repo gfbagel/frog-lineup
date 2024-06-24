@@ -183,14 +183,14 @@ export const characterList: Character[] = [
       name: 'Genius',
       description: '',
       statAffecting: 'intelligence',
-      statValue: 0,
+      statValue: 1,
       statModifier: StatMod.ADD,
     },
     weakness: {
       name: 'Disfigured',
       description: '',
       statAffecting: 'dexterity',
-      statValue: 0,
+      statValue: 1,
       statModifier: StatMod.SUBTRACT,
     },
     stats: {
