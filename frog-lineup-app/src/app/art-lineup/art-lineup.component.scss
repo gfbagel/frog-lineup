@@ -5,6 +5,8 @@
 .img-container {
   min-width: 100px;
   min-height: 100px;
+  cursor: pointer;
+  transition: opacity .5s ease-in;
 }
 
 .line {

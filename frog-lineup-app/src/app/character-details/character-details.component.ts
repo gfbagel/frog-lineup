@@ -15,8 +15,8 @@ import {
 export interface Character {
   name: string;
   description: string;
-  ability: StatAbility;
-  weakness: StatAbility;
+  ability?: StatAbility;
+  weakness?: StatAbility;
   stats: Stats;
   age: number;
   height: number;
@@ -56,21 +56,23 @@ export enum Rank {
 export const averageStatThreshold = 3;
 export const maximumStatThreshold = 6;
 
+export const _REDACTEDTXT = '[REDACTED]';
+
 export const noDataCharacter: Character = {
-  name: '[REDACTED]',
-  description: '[REDACTED]',
+  name: _REDACTEDTXT,
+  description: _REDACTEDTXT,
   ability: {
-    name: '[REDACTED]',
+    name: _REDACTEDTXT,
     description: '',
     statAffecting: 'intelligence',
-    statValue: 0,
+    statValue: 1,
     statModifier: StatMod.ADD,
   },
   weakness: {
-    name: '[REDACTED]',
+    name: _REDACTEDTXT,
     description: '',
     statAffecting: 'dexterity',
-    statValue: 0,
+    statValue: 1,
     statModifier: StatMod.SUBTRACT,
   },
   stats: {
@@ -103,7 +105,19 @@ export const noDataCharacter: Character = {
 })
 export class CharacterDetailsComponent implements OnInit {
   statAsModifier(stat: keyof Stats): string {
-    const modVal = this.character!.stats[stat] - averageStatThreshold;
+    let modVal = this.character!.stats[stat] - averageStatThreshold;
+    if (
+      this.character?.ability &&
+      this.character.ability.statAffecting === stat
+    ) {
+      modVal += this.character.ability.statValue;
+    }
+    if (
+      this.character?.weakness &&
+      this.character.weakness.statAffecting === stat
+    ) {
+      modVal -= this.character.weakness.statValue;
+    }
     return `${modVal >= 0 ? '+' : ''}${modVal}`;
   }
   @Input() character?: Character;
@@ -127,8 +141,10 @@ export class CharacterDetailsComponent implements OnInit {
   loadCharacterData(character: Character) {
     this.characterInfoFormGroup = new FormGroup({
       name: new FormControl<string>(character.name),
-      ability: new FormControl<string>(character.ability.name),
-      weakness: new FormControl<string>(character.weakness.name),
+      ability: new FormControl<string>(character.ability?.name ?? _REDACTEDTXT),
+      weakness: new FormControl<string>(
+        character.weakness?.name ?? _REDACTEDTXT,
+      ),
       description: new FormControl<string>(character.description),
     });
   }

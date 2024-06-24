@@ -59,14 +59,14 @@
                   <!-- {{ idx }}|{{ statTick }} -->
                   <!-- boon -->
                   @if (idx === statTick && character) {
-                    @if (character.ability.statAffecting === stat.value) {
+                    @if (character.ability?.statAffecting === stat.value) {
                       <mat-icon>add_box</mat-icon>
                     } @else {
                       <mat-icon></mat-icon>
                     }
                     <!-- bane -->
                   } @else if (idx + 1 === statTick && character) {
-                    @if (character.weakness.statAffecting === stat.value) {
+                    @if (character.weakness?.statAffecting === stat.value) {
                       <mat-icon>disabled_by_default</mat-icon>
                     } @else {
                       <mat-icon>check_box_outline_blank</mat-icon>
