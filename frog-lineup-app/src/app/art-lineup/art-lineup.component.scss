@@ -1,0 +1,20 @@
+.lineup {
+  display: flex;
+}
+
+.img-container {
+  min-width: 100px;
+  min-height: 100px;
+}
+
+.line {
+  height: 2px;
+  background-color: red;
+  width: 100vw;
+  position: relative;
+}
+
+.not-hovered {
+  opacity: 25%;
+  transition: opacity .5s ease-out;
+}

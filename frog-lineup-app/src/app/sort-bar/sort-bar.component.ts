@@ -18,8 +18,47 @@ export enum SortType {
 
 export interface StatDropDownOption {
   label: string;
+  label_short: string;
   value: keyof Stats;
 }
+
+export const statsNames: StatDropDownOption[] = [
+  {
+    label: 'ST Strength',
+    label_short: 'ST',
+    value: 'strength',
+  },
+  {
+    label: 'DX Dexterity',
+    label_short: 'DX',
+    value: 'dexterity',
+  },
+  {
+    label: 'CN Constitution',
+    label_short: 'CN',
+    value: 'constitution',
+  },
+  {
+    label: 'IT Intelligence',
+    label_short: 'IT',
+    value: 'intelligence',
+  },
+  {
+    label: 'WS Wisdom',
+    label_short: 'WS',
+    value: 'wisdom',
+  },
+  {
+    label: 'CH Charisma',
+    label_short: 'CH',
+    value: 'charisma',
+  },
+  {
+    label: 'LK Luck',
+    label_short: 'LK',
+    value: 'luck',
+  },
+];
 
 @Component({
   selector: 'app-sort-bar',
@@ -39,39 +78,15 @@ export interface StatDropDownOption {
 export class SortBarComponent {
   @ViewChild('sortingToggleBtnGrp') sortingToggleBtnGrp?: MatButtonToggleGroup;
 
-  statsNames: StatDropDownOption[] = [
-    {
-      label: 'ST Strength',
-      value: 'strength',
-    },
-    {
-      label: 'DX Dexterity',
-      value: 'dexterity',
-    },
-    {
-      label: 'CN Constitution',
-      value: 'constitution',
-    },
-    {
-      label: 'IT Intelligence',
-      value: 'intelligence',
-    },
-    {
-      label: 'WS Wisdom',
-      value: 'wisdom',
-    },
-    {
-      label: 'CH Charisma',
-      value: 'charisma',
-    },
-    {
-      label: 'LK Luck',
-      value: 'luck',
-    },
-  ];
-
   SortTypeEnum = SortType;
   sortTypeCtrl = new FormControl<SortType>(SortType.RANK);
+  sortingStatCtrl = new FormControl<keyof Stats>({
+    disabled: true,
+    value: 'strength',
+  });
+
+  statsNames = statsNames;
+
   get isSortingByStat() {
     if (this.sortTypeCtrl) {
       return this.sortTypeCtrl.value === SortType.STAT;

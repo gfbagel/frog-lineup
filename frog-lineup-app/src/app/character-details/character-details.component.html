@@ -1,1 +1,97 @@
-<p>character-details works!</p>
+<div class="container">
+  <div class="container">
+    <div #characterImg></div>
+    <div class="container" style="flex-direction: column" #textInfo>
+      <mat-form-field MatForm>
+        <mat-label>Name</mat-label>
+        <input matInput [formControl]="characterInfoFormGroup.controls.name" />
+      </mat-form-field>
+      <mat-form-field MatForm>
+        <mat-label>Abilities</mat-label>
+        <input
+          matInput
+          [formControl]="characterInfoFormGroup.controls.ability"
+        />
+      </mat-form-field>
+      <mat-form-field MatForm>
+        <mat-label>Weaknesses</mat-label>
+        <input
+          matInput
+          [formControl]="characterInfoFormGroup.controls.weakness"
+        />
+      </mat-form-field>
+      <mat-form-field MatForm>
+        <mat-label>Misc.</mat-label>
+        <textarea
+          matInput
+          [formControl]="characterInfoFormGroup.controls.description"
+        ></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+  <mat-divider vertical></mat-divider>
+  <div>
+    <mat-list #stats>
+      @for (stat of statsList; track stat; let last = $last) {
+        <mat-list-item style="overflow: visible">
+          <span
+            style="
+              height: 100px;
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              padding-right: 25px;
+            "
+          >
+            <div class="stat-text">
+              {{ stat.label_short }}
+            </div>
+            <div class="stat-text">
+              {{ statAsModifier(stat.value) }}
+            </div>
+            @for (
+              statTick of _statToIterable(stat);
+              track $index;
+              let idx = $index
+            ) {
+              <div>
+                <button mat-mini-fab style="box-shadow: unset">
+                  <!-- {{ idx }}|{{ statTick }} -->
+                  <!-- boon -->
+                  @if (idx === statTick && character) {
+                    @if (character.ability.statAffecting === stat.value) {
+                      <mat-icon>add_box</mat-icon>
+                    } @else {
+                      <mat-icon></mat-icon>
+                    }
+                    <!-- bane -->
+                  } @else if (idx + 1 === statTick && character) {
+                    @if (character.weakness.statAffecting === stat.value) {
+                      <mat-icon>disabled_by_default</mat-icon>
+                    } @else {
+                      <mat-icon>check_box_outline_blank</mat-icon>
+                    }
+                  } @else if (character) {
+                    @if (idx + 1 <= statTick) {
+                      <mat-icon>check_box_outline_blank</mat-icon>
+                    } @else {
+                      <mat-icon></mat-icon>
+                    }
+                  } @else {
+                    <mat-list-item disabled
+                      ><mat-icon>check_box_outline_blank</mat-icon>
+                    </mat-list-item>
+                  }
+                </button>
+              </div>
+            }
+          </span>
+        </mat-list-item>
+
+        @if (!last) {
+          <mat-divider></mat-divider>
+        }
+      }
+    </mat-list>
+  </div>
+</div>

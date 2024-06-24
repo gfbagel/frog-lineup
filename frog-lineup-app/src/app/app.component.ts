@@ -3,11 +3,9 @@ import { RouterOutlet } from '@angular/router';
 import { CharacterDetailsComponent } from './character-details/character-details.component';
 import { ArtLineupComponent } from './art-lineup/art-lineup.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {
-  MatButtonToggle,
-  MatButtonToggleModule,
-} from '@angular/material/button-toggle';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { SortBarComponent } from './sort-bar/sort-bar.component';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +19,7 @@ import { SortBarComponent } from './sort-bar/sort-bar.component';
     MatFormFieldModule,
     MatButtonToggleModule,
     SortBarComponent,
+    MatDividerModule,
   ],
 })
 export class AppComponent {

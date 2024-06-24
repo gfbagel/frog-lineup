@@ -8,9 +8,8 @@ describe('SortBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SortBarComponent]
-    })
-    .compileComponents();
+      imports: [SortBarComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SortBarComponent);
     component = fixture.componentInstance;

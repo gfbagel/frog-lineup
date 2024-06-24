@@ -1,1 +1,20 @@
-<p>art-lineup works!</p>
+<div class="lineup">
+  @for (character of characterList; track character; let index = $index) {
+    <div
+      #imgContainer
+      class="img-container"
+      (mouseenter)="onImgHover(index)"
+      (mouseleave)="onImgLeave()"
+    >
+      <img
+        class="image"
+        [alt]="character.name"
+        [src]="'./characterImages/' + character"
+      />
+      <div>
+        {{ character.name }}
+      </div>
+      <div class="line" [style.bottom]="character.height + 'px'"></div>
+    </div>
+  }
+</div>
