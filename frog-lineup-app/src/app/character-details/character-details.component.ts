@@ -11,6 +11,9 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSelectModule } from '@angular/material/select';
+import { KeyValuePipe } from '@angular/common';
 
 export interface Character {
   name: string;
@@ -24,6 +27,9 @@ export interface Character {
   serviceYrs: number;
   img?: string;
   isActiveService: boolean;
+
+  generation?: string;
+  age_detailed?: string;
 }
 
 export interface Stats {
@@ -105,10 +111,14 @@ export const noDataCharacter: Character = {
   },
   age: 0,
   height: 0,
-  rank: Rank.SERGEANT,
+  rank: Rank.NONE,
   serviceYrs: 0,
   isActiveService: true,
 };
+
+// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
+export type FormGrpControls<T> = Record<keyof T, FormControl>;
+
 @Component({
   selector: 'app-character-details',
   standalone: true,
@@ -120,11 +130,32 @@ export const noDataCharacter: Character = {
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSlideToggleModule,
+    MatSelectModule,
+    KeyValuePipe,
   ],
   templateUrl: './character-details.component.html',
   styleUrl: './character-details.component.scss',
 })
 export class CharacterDetailsComponent implements OnInit {
+  @Input() character?: Character;
+
+  characterInfoFormGroup!: FormGroup<FormGrpControls<Character>>;
+
+  RankEnum = Rank;
+  rankDropdownItems: { value: Rank; label: string }[] = Object.keys(Rank)
+    .filter((f) => !isNaN(+f))
+    .map((x) => ({ label: Rank[+x], value: +x }));
+
+  ngOnInit() {
+    if (this.character) {
+      this.loadCharacterData(this.character);
+    } else {
+      this.character = noDataCharacter;
+      this.loadCharacterData(noDataCharacter);
+    }
+  }
+
   statAsModifier(stat: keyof Stats): string {
     let modVal = this.character!.stats[stat] - averageStatThreshold;
     if (
@@ -141,23 +172,6 @@ export class CharacterDetailsComponent implements OnInit {
     }
     return `${modVal >= 0 ? '+' : ''}${modVal}`;
   }
-  @Input() character?: Character;
-
-  characterInfoFormGroup!: FormGroup<{
-    name: FormControl;
-    ability: FormControl;
-    weakness: FormControl;
-    description: FormControl;
-  }>;
-
-  ngOnInit() {
-    if (this.character) {
-      this.loadCharacterData(this.character);
-    } else {
-      this.character = noDataCharacter;
-      this.loadCharacterData(noDataCharacter);
-    }
-  }
 
   loadCharacterData(character: Character) {
     this.character = character;
@@ -168,7 +182,14 @@ export class CharacterDetailsComponent implements OnInit {
         character.weakness?.name ?? _REDACTEDTXT,
       ),
       description: new FormControl<string>(character.description),
-    });
+      age: new FormControl(character.age),
+      height: new FormControl(character.height),
+      rank: new FormControl(character.rank),
+      serviceYrs: new FormControl(character.serviceYrs),
+      isActiveService: new FormControl(character.isActiveService),
+      generation: new FormControl(character.generation),
+      age_detailed: new FormControl(character.age_detailed),
+    } as FormGrpControls<Character>);
   }
 
   protected _statToIterable(statItem: StatDropDownOption) {

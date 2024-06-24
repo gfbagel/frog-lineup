@@ -36,6 +36,10 @@ export class ArtLineupComponent implements AfterViewInit {
   displayedCharacterList: Character[] = [...this._originalCharacterList];
 
   ngAfterViewInit() {
+    this._updateLineColors();
+  }
+
+  _updateLineColors() {
     this.imgs?.forEach(async (img, idx) => {
       if (this.lines!.get(idx)) {
         this.lines!.get(idx)!.nativeElement.style.backgroundColor =
@@ -47,7 +51,7 @@ export class ArtLineupComponent implements AfterViewInit {
   _getAvgColor(img: HTMLImageElement) {
     const fac = new FastAverageColor();
     return fac
-      .getColorAsync(img)
+      .getColorAsync(img, { algorithm: 'dominant', ignoredColor: [0, 0, 0, 0] })
       .then((color) => {
         return color.rgba;
       })
@@ -94,7 +98,6 @@ export class ArtLineupComponent implements AfterViewInit {
   }) {
     let subList = [...this._originalCharacterList];
 
-    console.log(event);
     if (event.sortType === SortType.STAT) {
       if (event.sortStat !== null) {
         if (event.hideNAChars) {
@@ -155,5 +158,7 @@ export class ArtLineupComponent implements AfterViewInit {
           break;
       }
     }
+
+    this._updateLineColors();
   }
 }

@@ -95,7 +95,6 @@ export class SortBarComponent implements AfterViewInit {
   hideNACharsCtrl = new FormControl(true);
 
   onSortStatChange() {
-    console.log('foo');
     this.sortChanged.emit({
       sortStat: this.sortingStatCtrl.value,
       sortType: this.sortTypeCtrl.value,
@@ -103,7 +102,6 @@ export class SortBarComponent implements AfterViewInit {
     });
   }
   onSortChange() {
-    console.log('foo2');
     if (this.isSortingByStat) {
       this.sortingStatCtrl.enable();
     } else {
