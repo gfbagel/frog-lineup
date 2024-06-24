@@ -5,10 +5,14 @@ import {
   QueryList,
   ElementRef,
 } from '@angular/core';
-import { Character } from '../character-details/character-details.component';
+import {
+  Character,
+  Stats,
+} from '../character-details/character-details.component';
 import { characterList } from './characterData';
 import { FastAverageColor } from 'fast-average-color';
 import { AsyncPipe } from '@angular/common';
+import { SortType } from '../sort-bar/sort-bar.component';
 
 @Component({
   selector: 'app-art-lineup',
@@ -23,6 +27,8 @@ export class ArtLineupComponent implements AfterViewInit {
     ElementRef<HTMLDivElement>
   >;
   @ViewChildren('img') imgs?: QueryList<ElementRef<HTMLImageElement>>;
+
+  characterList: Character[] = characterList;
 
   ngAfterViewInit() {
     this.imgs?.forEach(async (img, idx) => {
@@ -60,5 +66,33 @@ export class ArtLineupComponent implements AfterViewInit {
       }
     });
   }
-  characterList: Character[] = characterList;
+
+  sortCharacters(event: {
+    sortType: SortType | null;
+    sortStat: keyof Stats | null;
+  }) {
+    console.log(event);
+    if (event.sortType === SortType.STAT) {
+      if (event.sortStat !== null) {
+        this.characterList.sort((a, b) => {
+          return a.stats[event.sortStat!] - b.stats[event.sortStat!];
+        });
+      } else {
+        console.error('null sortStat when sorting by stat...');
+      }
+    } else {
+      this.characterList.sort((a, b) => {
+        switch (event.sortType) {
+          case SortType.HEIGHT:
+            return a.height - b.height;
+          case SortType.RANK:
+            return a.rank - b.rank;
+          case SortType.SENIORITY:
+            return a.age - b.age;
+          default:
+            return 0;
+        }
+      });
+    }
+  }
 }

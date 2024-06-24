@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import {
   MatButtonToggleGroup,
   MatButtonToggleModule,
@@ -77,11 +77,30 @@ export const statsNames: StatDropDownOption[] = [
 })
 export class SortBarComponent {
   @ViewChild('sortingToggleBtnGrp') sortingToggleBtnGrp?: MatButtonToggleGroup;
+  @Output() sortChanged = new EventEmitter<{
+    sortType: SortType | null;
+    sortStat: keyof Stats | null;
+  }>();
+
+  onSortStatChange() {
+    console.log('foo');
+    this.sortChanged.emit({
+      sortStat: this.sortingStatCtrl.value,
+      sortType: this.sortTypeCtrl.value,
+    });
+  }
+  onSortChange() {
+    console.log('foo2');
+    this.sortChanged.emit({
+      sortStat: this.sortingStatCtrl.value,
+      sortType: this.sortTypeCtrl.value,
+    });
+  }
 
   SortTypeEnum = SortType;
   sortTypeCtrl = new FormControl<SortType>(SortType.RANK);
   sortingStatCtrl = new FormControl<keyof Stats>({
-    disabled: true,
+    disabled: !this.isSortingByStat,
     value: 'strength',
   });
 

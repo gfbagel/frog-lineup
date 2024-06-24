@@ -4,10 +4,10 @@
   </div>
   <mat-divider></mat-divider>
   <div>
-    <app-sort-bar></app-sort-bar>
+    <app-sort-bar (sortChanged)="updateLineUpSort($event)"></app-sort-bar>
   </div>
   <mat-divider></mat-divider>
   <div>
-    <app-art-lineup></app-art-lineup>
+    <app-art-lineup #artLineup></app-art-lineup>
   </div>
 </div>

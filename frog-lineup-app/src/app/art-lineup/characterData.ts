@@ -429,7 +429,7 @@ export const characterList: Character[] = [
     weakness: {
       name: 'Idiot',
       description: '',
-      statAffecting: 'intellegence',
+      statAffecting: 'intelligence',
       statValue: 1,
       statModifier: StatMod.SUBTRACT,
     },

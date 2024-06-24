@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CharacterDetailsComponent } from './character-details/character-details.component';
+import {
+  CharacterDetailsComponent,
+  Stats,
+} from './character-details/character-details.component';
 import { ArtLineupComponent } from './art-lineup/art-lineup.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { SortBarComponent } from './sort-bar/sort-bar.component';
+import { SortBarComponent, SortType } from './sort-bar/sort-bar.component';
 import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
@@ -23,5 +26,14 @@ import { MatDividerModule } from '@angular/material/divider';
   ],
 })
 export class AppComponent {
+  @ViewChild('artLineup') artLineup?: ArtLineupComponent;
+
+  updateLineUpSort(event: {
+    sortType: SortType | null;
+    sortStat: keyof Stats | null;
+  }) {
+    console.log(event);
+    this.artLineup?.sortCharacters(event);
+  }
   title = 'frog-lineup-app';
 }
