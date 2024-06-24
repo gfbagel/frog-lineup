@@ -1,5 +1,8 @@
 <div style="display: flex; gap: 20px; align-items: center">
-  <mat-slide-toggle checked [formControl]="hideNACharsCtrl"
+  <mat-slide-toggle
+    checked
+    [formControl]="hideNACharsCtrl"
+    (change)="onSortChange()"
     >Hide N/A</mat-slide-toggle
   >
 

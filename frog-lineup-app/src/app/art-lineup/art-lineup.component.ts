@@ -97,7 +97,9 @@ export class ArtLineupComponent implements AfterViewInit {
     console.log(event);
     if (event.sortType === SortType.STAT) {
       if (event.sortStat !== null) {
-        subList = subList.filter((f) => f.stats[event.sortStat!]);
+        if (event.hideNAChars) {
+          subList = subList.filter((f) => f.stats[event.sortStat!]);
+        }
         this.displayedCharacterList = subList.sort((a, b) => {
           return (
             this._calculateStatFinal(a, event.sortStat!) -
@@ -110,31 +112,41 @@ export class ArtLineupComponent implements AfterViewInit {
     } else {
       switch (event.sortType) {
         case SortType.HEIGHT:
-          subList = subList.filter((f) => f.height);
+          if (event.hideNAChars) {
+            subList = subList.filter((f) => f.height);
+          }
           this.displayedCharacterList = subList.sort((a, b) => {
             return a.height - b.height;
           });
           break;
         case SortType.RANK:
-          subList = subList.filter((f) => f.rank);
+          if (event.hideNAChars) {
+            subList = subList.filter((f) => f.rank);
+          }
           this.displayedCharacterList = subList.sort((a, b) => {
             return a.rank - b.rank;
           });
           break;
         case SortType.SENIORITY:
-          subList = subList.filter((f) => f.serviceYrs);
+          if (event.hideNAChars) {
+            subList = subList.filter((f) => f.serviceYrs);
+          }
           this.displayedCharacterList = subList.sort((a, b) => {
             return a.serviceYrs - b.serviceYrs;
           });
           break;
         case SortType.AGE:
-          subList = subList.filter((f) => f.age);
+          if (event.hideNAChars) {
+            subList = subList.filter((f) => f.age);
+          }
           this.displayedCharacterList = subList.sort((a, b) => {
             return a.age - b.age;
           });
           break;
         case SortType.NAME:
-          subList = subList.filter((f) => f.name);
+          if (event.hideNAChars) {
+            subList = subList.filter((f) => f.name);
+          }
           this.displayedCharacterList = subList.sort((a, b) => {
             return a.name.localeCompare(b.name);
           });
