@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {
+  Character,
   CharacterDetailsComponent,
   Stats,
 } from './character-details/character-details.component';
@@ -27,6 +28,9 @@ import { MatDividerModule } from '@angular/material/divider';
 })
 export class AppComponent {
   @ViewChild('artLineup') artLineup?: ArtLineupComponent;
+  @ViewChild('characterDetails') characterDetails?: CharacterDetailsComponent;
+
+  title = 'frog-lineup-app';
 
   updateLineUpSort(event: {
     sortType: SortType | null;
@@ -35,5 +39,8 @@ export class AppComponent {
     console.log(event);
     this.artLineup?.sortCharacters(event);
   }
-  title = 'frog-lineup-app';
+
+  onCharacterClicked(event: Character) {
+    this.characterDetails?.loadCharacterData(event);
+  }
 }

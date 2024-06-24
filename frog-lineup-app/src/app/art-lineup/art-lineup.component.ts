@@ -4,6 +4,8 @@ import {
   AfterViewInit,
   QueryList,
   ElementRef,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 import {
   Character,
@@ -27,6 +29,8 @@ export class ArtLineupComponent implements AfterViewInit {
     ElementRef<HTMLDivElement>
   >;
   @ViewChildren('img') imgs?: QueryList<ElementRef<HTMLImageElement>>;
+
+  @Output() characterClicked = new EventEmitter<Character>();
 
   characterList: Character[] = characterList;
 
@@ -65,6 +69,10 @@ export class ArtLineupComponent implements AfterViewInit {
         this.lines?.get(idx)?.nativeElement.classList.add('focus-line');
       }
     });
+  }
+
+  onCharacterClick(character: Character) {
+    this.characterClicked.emit(character);
   }
 
   sortCharacters(event: {

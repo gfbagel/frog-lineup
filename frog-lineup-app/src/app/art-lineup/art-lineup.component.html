@@ -2,9 +2,12 @@
   @for (character of characterList; track character; let index = $index) {
     <div
       #imgContainer
+      [tabindex]="index"
       class="img-container"
       (mouseenter)="onImgHover(index)"
       (mouseleave)="onImgLeave()"
+      (keydown.enter)="onCharacterClick(character)"
+      (click)="onCharacterClick(character)"
     >
       <!-- [style.bottom]="character.height ? character.height + 'px' : undefined" -->
       <div #line class="line"></div>

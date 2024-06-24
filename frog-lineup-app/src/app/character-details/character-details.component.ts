@@ -80,28 +80,28 @@ export const _REDACTEDTXT = '[REDACTED]';
 export const noDataCharacter: Character = {
   name: _REDACTEDTXT,
   description: _REDACTEDTXT,
-  ability: {
-    name: _REDACTEDTXT,
-    description: '',
-    statAffecting: 'intelligence',
-    statValue: 1,
-    statModifier: StatMod.ADD,
-  },
-  weakness: {
-    name: _REDACTEDTXT,
-    description: '',
-    statAffecting: 'dexterity',
-    statValue: 1,
-    statModifier: StatMod.SUBTRACT,
-  },
+  // ability: {
+  //   name: _REDACTEDTXT,
+  //   description: '',
+  //   statAffecting: 'intelligence',
+  //   statValue: 1,
+  //   statModifier: StatMod.ADD,
+  // },
+  // weakness: {
+  //   name: _REDACTEDTXT,
+  //   description: '',
+  //   statAffecting: 'dexterity',
+  //   statValue: 1,
+  //   statModifier: StatMod.SUBTRACT,
+  // },
   stats: {
-    strength: 2,
-    dexterity: 2,
-    constitution: 3,
-    intelligence: 5,
-    wisdom: 4,
-    charisma: 3,
-    luck: 5,
+    strength: 0,
+    dexterity: 0,
+    constitution: 0,
+    intelligence: 0,
+    wisdom: 0,
+    charisma: 0,
+    luck: 0,
   },
   age: 0,
   height: 0,
@@ -160,6 +160,7 @@ export class CharacterDetailsComponent implements OnInit {
   }
 
   loadCharacterData(character: Character) {
+    this.character = character;
     this.characterInfoFormGroup = new FormGroup({
       name: new FormControl<string>(character.name),
       ability: new FormControl<string>(character.ability?.name ?? _REDACTEDTXT),
