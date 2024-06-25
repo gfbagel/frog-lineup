@@ -676,6 +676,7 @@ export const characterList: Character[] = [
     height: 17,
     rank: Rank.NONE,
     isActiveService: false,
+    correctedHeightPctFromTop: 20,
   },
   {
     img: 'Tenbu.PNG',
@@ -695,6 +696,7 @@ export const characterList: Character[] = [
     height: 20,
     rank: Rank.NONE,
     isActiveService: false,
+    correctedHeightPctFromTop: 7,
   },
   {
     img: 'Teruru.PNG',

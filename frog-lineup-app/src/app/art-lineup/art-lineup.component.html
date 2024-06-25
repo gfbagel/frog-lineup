@@ -18,14 +18,15 @@
       <!-- <div style=""> -->
       <div #lineContainer class="line-container">
         <div
-          #line
           class="line"
           [style.top]="character.correctedHeightPctFromTop + '%'"
           [style.margin-left]="-1 * imgContainer.offsetLeft + 'px'"
         >
           <div
+            #line
             class="second-line"
             [style.background-color]="_colorMap[character.name]"
+            [style.width]="lineup.offsetWidth + 'px'"
           ></div>
         </div>
       </div>

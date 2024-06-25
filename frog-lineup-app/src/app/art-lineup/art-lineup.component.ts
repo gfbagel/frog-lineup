@@ -60,7 +60,15 @@ export class ArtLineupComponent implements AfterViewInit {
   _getAvgColor(img: HTMLImageElement) {
     const fac = new FastAverageColor();
     return fac
-      .getColorAsync(img, { algorithm: 'dominant', ignoredColor: [0, 0, 0, 0] })
+      .getColorAsync(img, {
+        algorithm: 'dominant',
+        ignoredColor: [
+          [255, 255, 255, 255, 100],
+          [0, 0, 0, 255],
+          [0, 0, 0, 0],
+          [255, 255, 0, 255, 5],
+        ],
+      })
       .then((color) => {
         return color.rgba;
       })

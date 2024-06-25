@@ -3,7 +3,8 @@ $lineup-padding: 45px;
 .lineup {
   display: flex;
   align-items: end;
-  width: $lineup-width;
+  width: max-content;
+  height: 400px;
   padding: $lineup-padding;
 }
 
@@ -29,7 +30,6 @@ $lineup-padding: 45px;
   position:absolute;
   left: 0;
   height: 2px;
-  width: calc($lineup-width + ($lineup-padding*2));
   opacity:40%;
   transition: opacity .3s ease-out;
 }
