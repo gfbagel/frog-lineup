@@ -27,7 +27,7 @@ export interface Character {
   serviceYrs: number;
   isActiveService: boolean;
 
-  generation?: string;
+  generation?: Generation;
   age_detailed?: string;
 
   adjustedImgScalePct?: number;
@@ -83,6 +83,14 @@ export enum Rank {
   GENERAL_LIEUTENANT,
   GENERAL,
   COMMANDER_IN_CHIEF,
+}
+
+export enum Generation {
+  GEN_0,
+  GEN_1,
+  GEN_2,
+  GEN_3,
+  GEN_4,
 }
 
 export const averageStatThreshold = 3;
