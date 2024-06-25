@@ -42,7 +42,7 @@ export const characterList: Character[] = [
     height: 12,
     rank: Rank.PRIVATE_1ST,
     isActiveService: true,
-    correctedHeightPctFromTop: 60,
+    adjustedImgScalePct: 150,
   },
   {
     img: 'Bulolo.PNG',
@@ -676,7 +676,7 @@ export const characterList: Character[] = [
     height: 17,
     rank: Rank.NONE,
     isActiveService: false,
-    correctedHeightPctFromTop: 20,
+    adjustedImgScalePct: 18,
   },
   {
     img: 'Tenbu.PNG',
@@ -696,7 +696,7 @@ export const characterList: Character[] = [
     height: 20,
     rank: Rank.NONE,
     isActiveService: false,
-    correctedHeightPctFromTop: 7,
+    adjustedImgScalePct: 8,
   },
   {
     img: 'Teruru.PNG',

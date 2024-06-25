@@ -30,7 +30,7 @@ export interface Character {
   generation?: string;
   age_detailed?: string;
 
-  correctedHeightPctFromTop?: number;
+  adjustedImgScalePct?: number;
   img?: string;
 
   /**

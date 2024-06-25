@@ -19,7 +19,6 @@
       <div #lineContainer class="line-container">
         <div
           class="line"
-          [style.top]="character.correctedHeightPctFromTop + '%'"
           [style.margin-left]="-1 * imgContainer.offsetLeft + 'px'"
         >
           <div
@@ -34,6 +33,10 @@
       <img
         #img
         class="image"
+        [style.transform]="
+          'scale(' + (1 + character.adjustedImgScalePct! / 100) + ')'
+        "
+        [style.bottom]="character.adjustedImgScalePct! / 2 + '%'"
         [alt]="character.name"
         [src]="'img/' + character.img"
       />
