@@ -1,6 +1,7 @@
 .container {
   display: flex;
   gap: 20px;
+  min-width: 0;
 }
 
 .stat-text {

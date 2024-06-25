@@ -1,12 +1,10 @@
-$lineup-width: 200vw;
-
+$lineup-width: 500vw;
+$lineup-padding: 45px;
 .lineup {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-rows: 1fr;
+  display: flex;
   align-items: end;
-  // width: $lineup-width;
-  width: 400vw;
+  width: $lineup-width;
+  padding: $lineup-padding;
 }
 
 .img-container {
@@ -17,19 +15,23 @@ $lineup-width: 200vw;
   display:flex;
   // flex-flow: column;
   cursor: pointer;
-  transition: all .3s ease-out;
+  transition: opacity .3s ease-out;
   overflow: visible;
 }
 
 .line {
   position: relative;
   z-index: 1;
+}
+
+.second-line {
+  height: 5px; 
+  position:absolute;
+  left: 0;
   height: 2px;
-  // width: $lineup-width * 2;
-  width: 100px;
-  // margin-left: -300vw;
+  width: calc($lineup-width + ($lineup-padding*2));
   opacity:40%;
-  transition: all .3s ease-out;
+  transition: opacity .3s ease-out;
 }
 
 .line-container {
@@ -41,7 +43,7 @@ $lineup-width: 200vw;
 
 .not-hovered {
   opacity: 20%;
-  transition: all .3s ease-out;
+  transition: opacity .3s ease-out;
 }
 
 .image {
@@ -53,6 +55,6 @@ $lineup-width: 200vw;
 
 .focus-line {
   opacity: 100%;
-  transition: all .3s ease-out;
+  transition: opacity .3s ease-out;
   // background-color: red !important;
 }

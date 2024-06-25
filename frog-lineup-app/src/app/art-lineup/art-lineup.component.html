@@ -20,16 +20,21 @@
         <div
           #line
           class="line"
-          [style.background-color]="_colorMap[character.name]"
-          [style.top]="character._correctedHeightPctFromTop + '%'"
-        ></div>
+          [style.top]="character.correctedHeightPctFromTop + '%'"
+          [style.margin-left]="-1 * imgContainer.offsetLeft + 'px'"
+        >
+          <div
+            class="second-line"
+            [style.background-color]="_colorMap[character.name]"
+          ></div>
+        </div>
       </div>
       <!-- </div> -->
       <img
         #img
         class="image"
         [alt]="character.name"
-        [src]="'img/' + character._img"
+        [src]="'img/' + character.img"
       />
 
       <!-- <div>

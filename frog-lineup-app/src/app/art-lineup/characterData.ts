@@ -6,7 +6,7 @@ import {
 
 export const characterList: Character[] = [
   {
-    _img: 'Akumu.PNG',
+    img: 'Akumu.PNG',
     name: 'Akumu',
     description: '',
     stats: {
@@ -25,7 +25,7 @@ export const characterList: Character[] = [
     isActiveService: false,
   },
   {
-    _img: 'Bucklolo.PNG',
+    img: 'Bucklolo.PNG',
     name: 'Bucklolo',
     description: '',
     stats: {
@@ -42,10 +42,10 @@ export const characterList: Character[] = [
     height: 12,
     rank: Rank.PRIVATE_1ST,
     isActiveService: true,
-    _correctedHeightPctFromTop: 60,
+    correctedHeightPctFromTop: 60,
   },
   {
-    _img: 'Bulolo.PNG',
+    img: 'Bulolo.PNG',
     name: 'Bulolo',
     description: '',
     ability: {
@@ -78,7 +78,7 @@ export const characterList: Character[] = [
     isActiveService: false,
   },
   {
-    _img: 'Curoro.PNG',
+    img: 'Curoro.PNG',
     name: 'Curoro',
     description: '',
     stats: {
@@ -97,7 +97,7 @@ export const characterList: Character[] = [
     isActiveService: false,
   },
   {
-    _img: 'Dalalu.PNG',
+    img: 'Dalalu.PNG',
     name: 'Dalalu',
     description: '',
     ability: {
@@ -130,7 +130,7 @@ export const characterList: Character[] = [
     isActiveService: true,
   },
   {
-    _img: 'Dangaga.PNG',
+    img: 'Dangaga.PNG',
     name: 'Dangaga',
     description: '',
     stats: {
@@ -149,7 +149,7 @@ export const characterList: Character[] = [
     isActiveService: true,
   },
   {
-    _img: 'Deromo.PNG',
+    img: 'Deromo.PNG',
     name: 'Deromo',
     description: '',
     stats: {
@@ -168,7 +168,7 @@ export const characterList: Character[] = [
     isActiveService: false,
   },
   {
-    _img: 'Gadodo.PNG',
+    img: 'Gadodo.PNG',
     name: 'Gadodo',
     description: '',
     stats: {
@@ -187,7 +187,7 @@ export const characterList: Character[] = [
     isActiveService: false,
   },
   {
-    _img: 'Gosusu.PNG',
+    img: 'Gosusu.PNG',
     name: 'Gosusu',
     description: '',
     stats: {
@@ -206,7 +206,7 @@ export const characterList: Character[] = [
     isActiveService: false,
   },
   {
-    _img: 'Grahm.PNG',
+    img: 'Grahm.PNG',
     name: 'Grahm',
     description: '',
     stats: {
@@ -225,7 +225,7 @@ export const characterList: Character[] = [
     isActiveService: false,
   },
   {
-    _img: 'Grododu.PNG',
+    img: 'Grododu.PNG',
     name: 'Grododu',
     description: '',
     ability: {
@@ -258,7 +258,7 @@ export const characterList: Character[] = [
     isActiveService: true,
   },
   {
-    _img: 'Hitoto.PNG',
+    img: 'Hitoto.PNG',
     name: 'Hitoto',
     description: '',
     stats: {
@@ -277,7 +277,7 @@ export const characterList: Character[] = [
     isActiveService: true,
   },
   {
-    _img: 'Jamimi.PNG',
+    img: 'Jamimi.PNG',
     name: 'Jamimi',
     description: '',
     stats: {
@@ -296,7 +296,7 @@ export const characterList: Character[] = [
     isActiveService: false,
   },
   {
-    _img: 'Jomara.PNG',
+    img: 'Jomara.PNG',
     name: 'Jomara',
 
     description: '',
@@ -330,7 +330,7 @@ export const characterList: Character[] = [
     isActiveService: true,
   },
   {
-    _img: 'Keroro.PNG',
+    img: 'Keroro.PNG',
     name: 'Keroro',
     description: '',
     stats: {
@@ -349,7 +349,7 @@ export const characterList: Character[] = [
     isActiveService: true,
   },
   {
-    _img: 'Kiki.PNG',
+    img: 'Kiki.PNG',
     name: 'Kiki',
     description: '',
     stats: {
@@ -368,7 +368,7 @@ export const characterList: Character[] = [
     isActiveService: false,
   },
   {
-    _img: 'Knightenbottom.PNG',
+    img: 'Knightenbottom.PNG',
     name: 'Knightenbottom',
     description: '',
     stats: {
@@ -387,7 +387,7 @@ export const characterList: Character[] = [
     isActiveService: true,
   },
   {
-    _img: 'Kujijil.PNG',
+    img: 'Kujijil.PNG',
     name: 'Kujiji',
     description: '',
     ability: {
@@ -420,7 +420,7 @@ export const characterList: Character[] = [
     isActiveService: true,
   },
   {
-    _img: 'Kyohehe.PNG',
+    img: 'Kyohehe.PNG',
     name: 'Kyohehe',
     description: '',
     stats: {
@@ -439,7 +439,7 @@ export const characterList: Character[] = [
     isActiveService: true,
   },
   {
-    _img: 'Lyudidi.PNG',
+    img: 'Lyudidi.PNG',
     name: 'Lyudidi',
     description: '',
     stats: {
@@ -458,7 +458,7 @@ export const characterList: Character[] = [
     isActiveService: false,
   },
   {
-    _img: 'Murama.PNG',
+    img: 'Murama.PNG',
     name: 'Murama',
 
     description: '',
@@ -492,7 +492,7 @@ export const characterList: Character[] = [
     isActiveService: true,
   },
   {
-    _img: 'Murara.PNG',
+    img: 'Murara.PNG',
     name: 'Murara',
     description: '',
     stats: {
@@ -511,7 +511,7 @@ export const characterList: Character[] = [
     isActiveService: false,
   },
   {
-    _img: 'Nanami.PNG',
+    img: 'Nanami.PNG',
     name: 'Nanami',
     description: '',
     stats: {
@@ -530,7 +530,7 @@ export const characterList: Character[] = [
     isActiveService: true,
   },
   {
-    _img: 'Nenamo.PNG',
+    img: 'Nenamo.PNG',
     name: 'Nenamo',
 
     description: '',
@@ -564,7 +564,7 @@ export const characterList: Character[] = [
     isActiveService: true,
   },
   {
-    _img: 'Rizizu.PNG',
+    img: 'Rizizu.PNG',
     name: 'Rizizu',
     description: '',
     stats: {
@@ -583,7 +583,7 @@ export const characterList: Character[] = [
     isActiveService: true,
   },
   {
-    _img: 'Romeme.PNG',
+    img: 'Romeme.PNG',
     name: 'Romeme',
     description: '',
     stats: {
@@ -602,7 +602,7 @@ export const characterList: Character[] = [
     isActiveService: true,
   },
   {
-    _img: 'Ronana.PNG',
+    img: 'Ronana.PNG',
     name: 'Ronana',
     description: '',
     stats: {
@@ -621,7 +621,7 @@ export const characterList: Character[] = [
     isActiveService: false,
   },
   {
-    _img: 'Scototo.PNG',
+    img: 'Scototo.PNG',
     name: 'Scototo',
     description: '',
     stats: {
@@ -640,7 +640,7 @@ export const characterList: Character[] = [
     isActiveService: false,
   },
   {
-    _img: 'Shadudu.PNG',
+    img: 'Shadudu.PNG',
     name: 'Shadudu',
     description: '',
     stats: {
@@ -659,7 +659,7 @@ export const characterList: Character[] = [
     isActiveService: false,
   },
   {
-    _img: 'Shibibi.PNG',
+    img: 'Shibibi.PNG',
     name: 'Shibibi',
     description: '',
     stats: {
@@ -678,7 +678,7 @@ export const characterList: Character[] = [
     isActiveService: false,
   },
   {
-    _img: 'Tenbu.PNG',
+    img: 'Tenbu.PNG',
     name: 'Tenbu',
     description: '',
     stats: {
@@ -697,7 +697,7 @@ export const characterList: Character[] = [
     isActiveService: false,
   },
   {
-    _img: 'Teruru.PNG',
+    img: 'Teruru.PNG',
     name: 'Teruru',
     description: '',
     stats: {
@@ -716,7 +716,7 @@ export const characterList: Character[] = [
     isActiveService: true,
   },
   {
-    _img: 'Tikoko.PNG',
+    img: 'Tikoko.PNG',
     name: 'Tikoko',
     description: '',
     stats: {
@@ -735,7 +735,7 @@ export const characterList: Character[] = [
     isActiveService: true,
   },
   {
-    _img: 'Ulerara.PNG',
+    img: 'Ulerara.PNG',
     name: 'Ulerara',
     description: '',
     ability: {
@@ -768,7 +768,7 @@ export const characterList: Character[] = [
     isActiveService: true,
   },
   {
-    _img: 'Usagi.PNG',
+    img: 'Usagi.PNG',
     name: 'Usagi',
     description: '',
     stats: {
@@ -787,7 +787,7 @@ export const characterList: Character[] = [
     isActiveService: false,
   },
   {
-    _img: 'Xenono.PNG',
+    img: 'Xenono.PNG',
     name: 'Xenono',
     description: '',
     stats: {
@@ -806,7 +806,7 @@ export const characterList: Character[] = [
     isActiveService: false,
   },
   {
-    _img: 'Xi.PNG',
+    img: 'Xi.PNG',
     name: 'Xi',
     description: '',
     stats: {
@@ -825,7 +825,7 @@ export const characterList: Character[] = [
     isActiveService: false,
   },
   {
-    _img: 'Yamoro.PNG',
+    img: 'Yamoro.PNG',
     name: 'Yamoro',
     description: '',
     ability: {
@@ -858,7 +858,7 @@ export const characterList: Character[] = [
     isActiveService: true,
   },
   {
-    _img: 'Yonana.PNG',
+    img: 'Yonana.PNG',
     name: 'Yonana',
     description: '',
     stats: {
@@ -877,7 +877,7 @@ export const characterList: Character[] = [
     isActiveService: false,
   },
   {
-    _img: 'Yotaku.PNG',
+    img: 'Yotaku.PNG',
     name: 'Yotaku',
     description: '',
     stats: {
@@ -896,7 +896,7 @@ export const characterList: Character[] = [
     isActiveService: false,
   },
   {
-    _img: 'Zyena.PNG',
+    img: 'Zyena.PNG',
     name: 'Zyena',
     description: '',
     stats: {

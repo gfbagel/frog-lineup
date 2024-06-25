@@ -30,8 +30,12 @@ export interface Character {
   generation?: string;
   age_detailed?: string;
 
-  _img?: string;
-  _correctedHeightPctFromTop?: number;
+  correctedHeightPctFromTop?: number;
+  img?: string;
+
+  /**
+   * Don't touch this
+   */
   _adjustedHeightBasis?: number;
 }
 

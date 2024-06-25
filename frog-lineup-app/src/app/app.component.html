@@ -1,13 +1,13 @@
 <div class="app-container">
-  <div>
+  <div class="section">
     <app-character-details #characterDetails></app-character-details>
   </div>
   <mat-divider></mat-divider>
-  <div>
+  <div class="section">
     <app-sort-bar (sortChanged)="updateLineUpSort($event)"></app-sort-bar>
   </div>
   <mat-divider></mat-divider>
-  <div style="overflow: scroll">
+  <div style="overflow-x: scroll">
     <app-art-lineup
       #artLineup
       (characterClicked)="onCharacterClicked($event)"

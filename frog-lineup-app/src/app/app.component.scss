@@ -1,6 +1,11 @@
 .app-container {
-  padding: 20px 50px;
   display: flex;
   flex-flow: column;
   gap: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.section {
+  padding: 0 20px;
 }
