@@ -41,7 +41,7 @@ export class ArtLineupComponent implements AfterViewInit {
   }
 
   protected _adjustedRatioHeight(character: Character) {
-    let defactoHeight = character._adjustedHeightBasis;
+    const defactoHeight = character._adjustedHeightBasis;
     // if (defactoHeight && character.correctedHeightPctFromTop) {
     //   defactoHeight =
     //     defactoHeight * (1 + character.correctedHeightPctFromTop / 100);
