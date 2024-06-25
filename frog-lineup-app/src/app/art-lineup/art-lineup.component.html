@@ -1,4 +1,4 @@
-<div class="lineup">
+<div #lineup class="lineup">
   @for (
     character of displayedCharacterList;
     track character;
@@ -8,18 +8,28 @@
       #imgContainer
       [tabindex]="index"
       class="img-container"
+      [style.height]="_adjustedRatioHeight(character)"
       (mouseenter)="onImgHover(index)"
       (mouseleave)="onImgLeave()"
       (keydown.enter)="onCharacterClick(character)"
       (click)="onCharacterClick(character)"
     >
       <!-- [style.bottom]="character.height ? character.height + 'px' : undefined" -->
-      <div #line class="line"></div>
+      <!-- <div style=""> -->
+      <div #lineContainer class="line-container">
+        <div
+          #line
+          class="line"
+          [style.background-color]="_colorMap[character.name]"
+          [style.top]="character._correctedHeightPctFromTop + '%'"
+        ></div>
+      </div>
+      <!-- </div> -->
       <img
         #img
         class="image"
         [alt]="character.name"
-        [src]="'img/' + character.img"
+        [src]="'img/' + character._img"
       />
 
       <!-- <div>

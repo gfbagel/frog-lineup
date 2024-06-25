@@ -25,11 +25,14 @@ export interface Character {
   height: number;
   rank: Rank;
   serviceYrs: number;
-  img?: string;
   isActiveService: boolean;
 
   generation?: string;
   age_detailed?: string;
+
+  _img?: string;
+  _correctedHeightPctFromTop?: number;
+  _adjustedHeightBasis?: number;
 }
 
 export interface Stats {

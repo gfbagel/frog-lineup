@@ -34,15 +34,24 @@ export class ArtLineupComponent implements AfterViewInit {
 
   _originalCharacterList: Character[] = characterList;
   displayedCharacterList: Character[] = [...this._originalCharacterList];
+  _colorMap: Record<string, string> = {};
 
   ngAfterViewInit() {
     this._updateLineColors();
   }
 
+  protected _adjustedRatioHeight(character: Character) {
+    let defactoHeight = character._adjustedHeightBasis;
+    if (defactoHeight && character._correctedHeightPctFromTop) {
+      defactoHeight = character._correctedHeightPctFromTop + defactoHeight;
+    }
+    return defactoHeight && defactoHeight + '%';
+  }
+
   _updateLineColors() {
     this.imgs?.forEach(async (img, idx) => {
       if (this.lines!.get(idx)) {
-        this.lines!.get(idx)!.nativeElement.style.backgroundColor =
+        this._colorMap[this.displayedCharacterList[idx].name] =
           await this._getAvgColor(img.nativeElement);
       }
     });
@@ -103,7 +112,7 @@ export class ArtLineupComponent implements AfterViewInit {
         if (event.hideNAChars) {
           subList = subList.filter((f) => f.stats[event.sortStat!]);
         }
-        this.displayedCharacterList = subList.sort((a, b) => {
+        subList = subList.sort((a, b) => {
           return (
             this._calculateStatFinal(a, event.sortStat!) -
             this._calculateStatFinal(b, event.sortStat!)
@@ -118,7 +127,7 @@ export class ArtLineupComponent implements AfterViewInit {
           if (event.hideNAChars) {
             subList = subList.filter((f) => f.height);
           }
-          this.displayedCharacterList = subList.sort((a, b) => {
+          subList = subList.sort((a, b) => {
             return a.height - b.height;
           });
           break;
@@ -126,7 +135,7 @@ export class ArtLineupComponent implements AfterViewInit {
           if (event.hideNAChars) {
             subList = subList.filter((f) => f.rank);
           }
-          this.displayedCharacterList = subList.sort((a, b) => {
+          subList = subList.sort((a, b) => {
             return a.rank - b.rank;
           });
           break;
@@ -134,7 +143,7 @@ export class ArtLineupComponent implements AfterViewInit {
           if (event.hideNAChars) {
             subList = subList.filter((f) => f.serviceYrs);
           }
-          this.displayedCharacterList = subList.sort((a, b) => {
+          subList = subList.sort((a, b) => {
             return a.serviceYrs - b.serviceYrs;
           });
           break;
@@ -142,7 +151,7 @@ export class ArtLineupComponent implements AfterViewInit {
           if (event.hideNAChars) {
             subList = subList.filter((f) => f.age);
           }
-          this.displayedCharacterList = subList.sort((a, b) => {
+          subList = subList.sort((a, b) => {
             return a.age - b.age;
           });
           break;
@@ -150,7 +159,7 @@ export class ArtLineupComponent implements AfterViewInit {
           if (event.hideNAChars) {
             subList = subList.filter((f) => f.name);
           }
-          this.displayedCharacterList = subList.sort((a, b) => {
+          subList = subList.sort((a, b) => {
             return a.name.localeCompare(b.name);
           });
           break;
@@ -159,6 +168,13 @@ export class ArtLineupComponent implements AfterViewInit {
       }
     }
 
-    this._updateLineColors();
+    const maxHeight = Math.max(...subList.map((f) => f.height));
+
+    subList = subList.map((f) => {
+      const heightDim = (f.height / maxHeight) * 100;
+      f._adjustedHeightBasis = heightDim;
+      return f;
+    });
+    this.displayedCharacterList = subList;
   }
 }

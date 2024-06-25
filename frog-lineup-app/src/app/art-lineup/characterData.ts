@@ -6,7 +6,7 @@ import {
 
 export const characterList: Character[] = [
   {
-    img: 'Akumu.PNG',
+    _img: 'Akumu.PNG',
     name: 'Akumu',
     description: '',
     stats: {
@@ -25,7 +25,7 @@ export const characterList: Character[] = [
     isActiveService: false,
   },
   {
-    img: 'Bucklolo.PNG',
+    _img: 'Bucklolo.PNG',
     name: 'Bucklolo',
     description: '',
     stats: {
@@ -42,11 +42,12 @@ export const characterList: Character[] = [
     height: 12,
     rank: Rank.PRIVATE_1ST,
     isActiveService: true,
+    _correctedHeightPctFromTop: 60,
   },
   {
-    img: 'Bulolo.PNG',
+    _img: 'Bulolo.PNG',
     name: 'Bulolo',
-description: '',
+    description: '',
     ability: {
       name: 'Ruthless',
       description: '',
@@ -57,7 +58,7 @@ description: '',
     weakness: {
       name: 'Impulsive',
       description: '',
-      statAffecting: 'intellegence',
+      statAffecting: 'intelligence',
       statValue: 1,
       statModifier: StatMod.SUBTRACT,
     },
@@ -77,7 +78,7 @@ description: '',
     isActiveService: false,
   },
   {
-    img: 'Curoro.PNG',
+    _img: 'Curoro.PNG',
     name: 'Curoro',
     description: '',
     stats: {
@@ -96,7 +97,7 @@ description: '',
     isActiveService: false,
   },
   {
-    img: 'Dalalu.PNG',
+    _img: 'Dalalu.PNG',
     name: 'Dalalu',
     description: '',
     ability: {
@@ -129,7 +130,7 @@ description: '',
     isActiveService: true,
   },
   {
-    img: 'Dangaga.PNG',
+    _img: 'Dangaga.PNG',
     name: 'Dangaga',
     description: '',
     stats: {
@@ -148,7 +149,7 @@ description: '',
     isActiveService: true,
   },
   {
-    img: 'Deromo.PNG',
+    _img: 'Deromo.PNG',
     name: 'Deromo',
     description: '',
     stats: {
@@ -167,7 +168,7 @@ description: '',
     isActiveService: false,
   },
   {
-    img: 'Gadodo.PNG',
+    _img: 'Gadodo.PNG',
     name: 'Gadodo',
     description: '',
     stats: {
@@ -186,7 +187,7 @@ description: '',
     isActiveService: false,
   },
   {
-    img: 'Gosusu.PNG',
+    _img: 'Gosusu.PNG',
     name: 'Gosusu',
     description: '',
     stats: {
@@ -205,7 +206,7 @@ description: '',
     isActiveService: false,
   },
   {
-    img: 'Grahm.PNG',
+    _img: 'Grahm.PNG',
     name: 'Grahm',
     description: '',
     stats: {
@@ -224,7 +225,7 @@ description: '',
     isActiveService: false,
   },
   {
-    img: 'Grododu.PNG',
+    _img: 'Grododu.PNG',
     name: 'Grododu',
     description: '',
     ability: {
@@ -257,7 +258,7 @@ description: '',
     isActiveService: true,
   },
   {
-    img: 'Hitoto.PNG',
+    _img: 'Hitoto.PNG',
     name: 'Hitoto',
     description: '',
     stats: {
@@ -276,7 +277,7 @@ description: '',
     isActiveService: true,
   },
   {
-    img: 'Jamimi.PNG',
+    _img: 'Jamimi.PNG',
     name: 'Jamimi',
     description: '',
     stats: {
@@ -295,7 +296,7 @@ description: '',
     isActiveService: false,
   },
   {
-    img: 'Jomara.PNG',
+    _img: 'Jomara.PNG',
     name: 'Jomara',
 
     description: '',
@@ -329,7 +330,7 @@ description: '',
     isActiveService: true,
   },
   {
-    img: 'Keroro.PNG',
+    _img: 'Keroro.PNG',
     name: 'Keroro',
     description: '',
     stats: {
@@ -348,7 +349,7 @@ description: '',
     isActiveService: true,
   },
   {
-    img: 'Kiki.PNG',
+    _img: 'Kiki.PNG',
     name: 'Kiki',
     description: '',
     stats: {
@@ -367,7 +368,7 @@ description: '',
     isActiveService: false,
   },
   {
-    img: 'Knightenbottom.PNG',
+    _img: 'Knightenbottom.PNG',
     name: 'Knightenbottom',
     description: '',
     stats: {
@@ -386,9 +387,9 @@ description: '',
     isActiveService: true,
   },
   {
-    img: 'Kujijil.PNG',
+    _img: 'Kujijil.PNG',
     name: 'Kujiji',
-description: '',
+    description: '',
     ability: {
       name: 'Charismatic',
       description: '',
@@ -419,7 +420,7 @@ description: '',
     isActiveService: true,
   },
   {
-    img: 'Kyohehe.PNG',
+    _img: 'Kyohehe.PNG',
     name: 'Kyohehe',
     description: '',
     stats: {
@@ -438,7 +439,7 @@ description: '',
     isActiveService: true,
   },
   {
-    img: 'Lyudidi.PNG',
+    _img: 'Lyudidi.PNG',
     name: 'Lyudidi',
     description: '',
     stats: {
@@ -457,7 +458,7 @@ description: '',
     isActiveService: false,
   },
   {
-    img: 'Murama.PNG',
+    _img: 'Murama.PNG',
     name: 'Murama',
 
     description: '',
@@ -491,7 +492,7 @@ description: '',
     isActiveService: true,
   },
   {
-    img: 'Murara.PNG',
+    _img: 'Murara.PNG',
     name: 'Murara',
     description: '',
     stats: {
@@ -510,7 +511,7 @@ description: '',
     isActiveService: false,
   },
   {
-    img: 'Nanami.PNG',
+    _img: 'Nanami.PNG',
     name: 'Nanami',
     description: '',
     stats: {
@@ -529,7 +530,7 @@ description: '',
     isActiveService: true,
   },
   {
-    img: 'Nenamo.PNG',
+    _img: 'Nenamo.PNG',
     name: 'Nenamo',
 
     description: '',
@@ -563,7 +564,7 @@ description: '',
     isActiveService: true,
   },
   {
-    img: 'Rizizu.PNG',
+    _img: 'Rizizu.PNG',
     name: 'Rizizu',
     description: '',
     stats: {
@@ -582,7 +583,7 @@ description: '',
     isActiveService: true,
   },
   {
-    img: 'Romeme.PNG',
+    _img: 'Romeme.PNG',
     name: 'Romeme',
     description: '',
     stats: {
@@ -601,7 +602,7 @@ description: '',
     isActiveService: true,
   },
   {
-    img: 'Ronana.PNG',
+    _img: 'Ronana.PNG',
     name: 'Ronana',
     description: '',
     stats: {
@@ -620,7 +621,7 @@ description: '',
     isActiveService: false,
   },
   {
-    img: 'Scototo.PNG',
+    _img: 'Scototo.PNG',
     name: 'Scototo',
     description: '',
     stats: {
@@ -639,7 +640,7 @@ description: '',
     isActiveService: false,
   },
   {
-    img: 'Shadudu.PNG',
+    _img: 'Shadudu.PNG',
     name: 'Shadudu',
     description: '',
     stats: {
@@ -658,7 +659,7 @@ description: '',
     isActiveService: false,
   },
   {
-    img: 'Shibibi.PNG',
+    _img: 'Shibibi.PNG',
     name: 'Shibibi',
     description: '',
     stats: {
@@ -677,7 +678,7 @@ description: '',
     isActiveService: false,
   },
   {
-    img: 'Tenbu.PNG',
+    _img: 'Tenbu.PNG',
     name: 'Tenbu',
     description: '',
     stats: {
@@ -696,7 +697,7 @@ description: '',
     isActiveService: false,
   },
   {
-    img: 'Teruru.PNG',
+    _img: 'Teruru.PNG',
     name: 'Teruru',
     description: '',
     stats: {
@@ -715,7 +716,7 @@ description: '',
     isActiveService: true,
   },
   {
-    img: 'Tikoko.PNG',
+    _img: 'Tikoko.PNG',
     name: 'Tikoko',
     description: '',
     stats: {
@@ -734,9 +735,9 @@ description: '',
     isActiveService: true,
   },
   {
-    img: 'Ulerara.PNG',
+    _img: 'Ulerara.PNG',
     name: 'Ulerara',
-description: '',
+    description: '',
     ability: {
       name: 'Undead',
       description: '',
@@ -767,7 +768,7 @@ description: '',
     isActiveService: true,
   },
   {
-    img: 'Usagi.PNG',
+    _img: 'Usagi.PNG',
     name: 'Usagi',
     description: '',
     stats: {
@@ -786,7 +787,7 @@ description: '',
     isActiveService: false,
   },
   {
-    img: 'Xenono.PNG',
+    _img: 'Xenono.PNG',
     name: 'Xenono',
     description: '',
     stats: {
@@ -805,7 +806,7 @@ description: '',
     isActiveService: false,
   },
   {
-    img: 'Xi.PNG',
+    _img: 'Xi.PNG',
     name: 'Xi',
     description: '',
     stats: {
@@ -824,7 +825,7 @@ description: '',
     isActiveService: false,
   },
   {
-    img: 'Yamoro.PNG',
+    _img: 'Yamoro.PNG',
     name: 'Yamoro',
     description: '',
     ability: {
@@ -857,7 +858,7 @@ description: '',
     isActiveService: true,
   },
   {
-    img: 'Yonana.PNG',
+    _img: 'Yonana.PNG',
     name: 'Yonana',
     description: '',
     stats: {
@@ -876,7 +877,7 @@ description: '',
     isActiveService: false,
   },
   {
-    img: 'Yotaku.PNG',
+    _img: 'Yotaku.PNG',
     name: 'Yotaku',
     description: '',
     stats: {
@@ -895,7 +896,7 @@ description: '',
     isActiveService: false,
   },
   {
-    img: 'Zyena.PNG',
+    _img: 'Zyena.PNG',
     name: 'Zyena',
     description: '',
     stats: {
