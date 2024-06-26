@@ -26,6 +26,7 @@ export const characterList: Character[] = [
     serviceYrs: 0,
     rank: Rank.NONE,
     isActiveService: false,
+    adjustedImgScalePct: 4,
     generation: Generation.GEN_0,
     age_detailed: _REDACTEDTXT,
   },
@@ -49,7 +50,7 @@ export const characterList: Character[] = [
     rank: Rank.PRIVATE_1ST,
     isActiveService: true,
     generation: Generation.GEN_2,
-    adjustedImgScalePct: 150,
+    adjustedImgScalePct: 160,
   },
   {
     img: 'Bulolo.PNG',
@@ -84,6 +85,7 @@ export const characterList: Character[] = [
     height: 22,
     rank: Rank.CORPORAL_LANCE,
     isActiveService: false,
+    adjustedImgScalePct: 4,
     generation: Generation.GEN_2,
     age_detailed: _REDACTEDTXT,
   },
@@ -106,6 +108,7 @@ export const characterList: Character[] = [
     height: 19,
     rank: Rank.SERGEANT,
     isActiveService: false,
+    adjustedImgScalePct: 15,
     generation: Generation.GEN_2,
   },
   {
@@ -141,6 +144,7 @@ export const characterList: Character[] = [
     height: 24,
     rank: Rank.OFFICER_WARRANT,
     isActiveService: true,
+    adjustedImgScalePct: 6,
     generation: Generation.GEN_2,
   },
   {
@@ -176,6 +180,7 @@ export const characterList: Character[] = [
     height: 36,
     rank: Rank.SERGEANT_MAJOR,
     isActiveService: true,
+    adjustedImgScalePct: 10,
     generation: Generation.GEN_2,
   },
   {
@@ -197,6 +202,7 @@ export const characterList: Character[] = [
     height: 20,
     rank: Rank.SERGEANT_MAJOR,
     isActiveService: false,
+    adjustedImgScalePct: 7,
     generation: Generation.GEN_1,
   },
   {
@@ -218,6 +224,7 @@ export const characterList: Character[] = [
     height: 21,
     rank: Rank.MAJOR,
     isActiveService: false,
+    adjustedImgScalePct: 4,
     generation: Generation.GEN_1,
   },
   {
@@ -239,6 +246,7 @@ export const characterList: Character[] = [
     height: 19,
     rank: Rank.NONE,
     isActiveService: false,
+    adjustedImgScalePct: 20,
     generation: Generation.GEN_3,
     age_detailed: '19',
   },
@@ -261,6 +269,8 @@ export const characterList: Character[] = [
     height: 21,
     rank: Rank.NONE,
     isActiveService: false,
+    adjustedImgScalePct: 9,
+    generation: Generation.GEN_0,
     age_detailed: _REDACTEDTXT,
   },
   {
@@ -296,6 +306,7 @@ export const characterList: Character[] = [
     height: 27,
     rank: Rank.CORPORAL,
     isActiveService: true,
+    adjustedImgScalePct: 3,
     generation: Generation.GEN_2,
   },
   {
@@ -317,6 +328,7 @@ export const characterList: Character[] = [
     height: 19,
     rank: Rank.CORPORAL_LANCE,
     isActiveService: true,
+    adjustedImgScalePct: 15,
     generation: Generation.GEN_2,
   },
   {
@@ -338,6 +350,7 @@ export const characterList: Character[] = [
     height: 22,
     rank: Rank.CORPORAL_LANCE,
     isActiveService: false,
+    adjustedImgScalePct: 13,
     generation: Generation.GEN_1,
   },
   {
@@ -373,6 +386,8 @@ export const characterList: Character[] = [
     height: 19,
     rank: Rank.PRIVATE_SUPERIOR,
     isActiveService: true,
+    adjustedImgScalePct: 7,
+    generation: Generation.GEN_2,
   },
   {
     img: 'Keroro.PNG',
@@ -393,6 +408,7 @@ export const characterList: Character[] = [
     height: 20,
     rank: Rank.SERGEANT,
     isActiveService: true,
+    adjustedImgScalePct: 4,
     age_detailed: _REDACTEDTXT,
   },
   {
@@ -414,6 +430,8 @@ export const characterList: Character[] = [
     height: 18,
     rank: Rank.NONE,
     isActiveService: false,
+    adjustedImgScalePct: 20,
+    generation: Generation.GEN_0,
     age_detailed: _REDACTEDTXT,
   },
   {
@@ -434,6 +452,7 @@ export const characterList: Character[] = [
     height: 17,
     rank: Rank.NONE,
     isActiveService: true,
+    adjustedImgScalePct: 40,
     generation: Generation.GEN_0,
     age_detailed: _REDACTEDTXT,
   },
@@ -470,6 +489,7 @@ export const characterList: Character[] = [
     height: 21,
     rank: Rank.SERGEANT_MAJOR,
     isActiveService: true,
+    adjustedImgScalePct: 12,
     generation: Generation.GEN_1,
     age_detailed: '30',
   },
@@ -492,6 +512,7 @@ export const characterList: Character[] = [
     height: 23,
     rank: Rank.SERGEANT,
     isActiveService: true,
+    adjustedImgScalePct: 33,
     generation: Generation.GEN_1,
     age_detailed: '30',
   },
@@ -514,6 +535,7 @@ export const characterList: Character[] = [
     height: 9,
     rank: Rank.NONE,
     isActiveService: false,
+    adjustedImgScalePct: 20,
     generation: Generation.GEN_0,
     age_detailed: _REDACTEDTXT,
   },
@@ -551,6 +573,7 @@ export const characterList: Character[] = [
     height: 19,
     rank: Rank.CORPORAL_LANCE,
     isActiveService: true,
+    adjustedImgScalePct: 6,
     generation: Generation.GEN_2,
   },
   {
@@ -571,6 +594,7 @@ export const characterList: Character[] = [
     height: 19,
     rank: Rank.CORPORAL,
     isActiveService: false,
+    adjustedImgScalePct: 3,
     generation: Generation.GEN_1,
   },
   {
@@ -592,6 +616,7 @@ export const characterList: Character[] = [
     height: 19,
     rank: Rank.PRIVATE_3RD,
     isActiveService: true,
+    adjustedImgScalePct: 3,
     generation: Generation.GEN_2,
   },
   {
@@ -628,6 +653,7 @@ export const characterList: Character[] = [
     height: 25,
     rank: Rank.CORPORAL,
     isActiveService: true,
+    adjustedImgScalePct: 13,
     generation: Generation.GEN_2,
   },
   {
@@ -649,6 +675,7 @@ export const characterList: Character[] = [
     height: 16,
     rank: Rank.SERGEANT,
     isActiveService: true,
+    adjustedImgScalePct: 4,
     generation: Generation.GEN_2,
   },
   {
@@ -670,6 +697,7 @@ export const characterList: Character[] = [
     height: 20,
     rank: Rank.MAJOR,
     isActiveService: true,
+    adjustedImgScalePct: 26,
     generation: Generation.GEN_1,
     age_detailed: '25',
   },
@@ -692,6 +720,7 @@ export const characterList: Character[] = [
     height: 27,
     rank: Rank.NONE,
     isActiveService: false,
+    adjustedImgScalePct: 7,
     generation: Generation.GEN_1,
     age_detailed: 'DECEASED',
   },
@@ -714,6 +743,7 @@ export const characterList: Character[] = [
     height: 19,
     rank: Rank.NONE,
     isActiveService: false,
+    adjustedImgScalePct: 22,
     generation: Generation.GEN_2,
   },
   {
@@ -749,6 +779,7 @@ export const characterList: Character[] = [
     height: 29,
     rank: Rank.NONE,
     isActiveService: false,
+    adjustedImgScalePct: 10,
     generation: Generation.GEN_0,
     age_detailed: _REDACTEDTXT,
   },
@@ -844,6 +875,7 @@ export const characterList: Character[] = [
     height: 18,
     rank: Rank.LIEUTENANT_2ND,
     isActiveService: true,
+    adjustedImgScalePct: 10,
     generation: Generation.GEN_0,
     age_detailed: '37',
   },
@@ -880,6 +912,7 @@ export const characterList: Character[] = [
     height: 16,
     rank: Rank.CORPORAL,
     isActiveService: true,
+    adjustedImgScalePct: 4,
     generation: Generation.GEN_2,
   },
   {
@@ -915,6 +948,7 @@ export const characterList: Character[] = [
     height: 20,
     rank: Rank.PRIVATE_IN_TRAINING,
     isActiveService: true,
+    adjustedImgScalePct: 6,
     generation: Generation.GEN_2,
   },
   {
@@ -950,6 +984,7 @@ export const characterList: Character[] = [
     height: 20,
     rank: Rank.NONE,
     isActiveService: false,
+    adjustedImgScalePct: 35,
     generation: Generation.GEN_0,
     age_detailed: _REDACTEDTXT,
   },
@@ -1030,6 +1065,7 @@ export const characterList: Character[] = [
     height: 17,
     rank: Rank.SERGEANT_MAJOR,
     isActiveService: true,
+    adjustedImgScalePct: 8,
     generation: Generation.GEN_2,
   },
   {
@@ -1051,6 +1087,7 @@ export const characterList: Character[] = [
     height: 16,
     rank: Rank.CAPTAIN,
     isActiveService: false,
+    adjustedImgScalePct: 7,
     generation: Generation.GEN_1,
   },
   {
@@ -1072,6 +1109,7 @@ export const characterList: Character[] = [
     height: 23,
     rank: Rank.NONE,
     isActiveService: false,
+    adjustedImgScalePct: 15,
     generation: Generation.GEN_0,
     age_detailed: _REDACTEDTXT,
   },
@@ -1094,6 +1132,7 @@ export const characterList: Character[] = [
     height: 18,
     rank: Rank.NONE,
     isActiveService: false,
+    adjustedImgScalePct: 5,
     generation: Generation.GEN_2,
     age_detailed: _REDACTEDTXT,
   },
