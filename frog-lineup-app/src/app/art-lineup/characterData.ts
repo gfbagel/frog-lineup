@@ -10,7 +10,8 @@ export const characterList: Character[] = [
   {
     img: 'Akumu.PNG',
     name: 'Akumu',
-    description: 'Self-proclaimed King Akumu, who teleported from his medvieval-esc alternate universe to rule over planet Keron!',
+    description:
+      'Self-proclaimed King Akumu, who teleported from his medieval-esque alternate universe to rule over planet Keron!',
     stats: {
       strength: 3,
       dexterity: 3,
@@ -31,7 +32,8 @@ export const characterList: Character[] = [
   {
     img: 'Bucklolo.PNG',
     name: 'Bucklolo',
-    description: 'Newest PINPOINT member recuited from a Keronian culture reserve. A first of many brought in by the Keronian Homogenization Program.',
+    description:
+      'Newest PINPOINT member recruited from a Keronian culture reserve. A first of many brought in by the Keronian Homogenization Program.',
     stats: {
       strength: 5,
       dexterity: 3,
@@ -52,7 +54,8 @@ export const characterList: Character[] = [
   {
     img: 'Bulolo.PNG',
     name: 'Bulolo',
-    description: 'Galactic-scale hitman and serial killer rumored to be the notorious "29-1 Slaughterer" who had been publically put to death.',
+    description:
+      'Galactic-scale hitman and serial killer rumored to be the notorious "29-1 Slaughterer" who had been publicly put to death.',
     ability: {
       name: 'Reflexive',
       description: '',
@@ -87,7 +90,8 @@ export const characterList: Character[] = [
   {
     img: 'Curoro.PNG',
     name: 'Curoro',
-    description: 'Cynical treasure hunter and army veteran who survived the attack of the "29-1 slaughterer.',
+    description:
+      'Cynical treasure hunter and army veteran who survived the attack of the "29-1 slaughterer.',
     stats: {
       strength: 4,
       dexterity: 4,
@@ -107,7 +111,8 @@ export const characterList: Character[] = [
   {
     img: 'Dalalu.PNG',
     name: 'Dalalu',
-    description: 'Son of a prevalent military family who quickly rose to a commissioned officer rank with the help of his father.',
+    description:
+      'Son of a prevalent military family who quickly rose to a commissioned officer rank with the help of his father.',
     ability: {
       name: 'Authoritative',
       description: '',
@@ -141,7 +146,8 @@ export const characterList: Character[] = [
   {
     img: 'Dangaga.PNG',
     name: 'Dangaga',
-    description: 'Military man through and through. He even gave his body to the cause...but at a cost, of course.',
+    description:
+      'Military man through and through. He even gave his body to the cause...but at a cost, of course.',
     ability: {
       name: 'Test Subject',
       description: '',
@@ -175,7 +181,8 @@ export const characterList: Character[] = [
   {
     img: 'Deromo.PNG',
     name: 'Deromo',
-    description: 'War veteran and family man just trying to keep up the family farm.',
+    description:
+      'War veteran and family man just trying to keep up the family farm.',
     stats: {
       strength: 4,
       dexterity: 5,
@@ -195,7 +202,8 @@ export const characterList: Character[] = [
   {
     img: 'Gadodo.PNG',
     name: 'Gadodo',
-    description: 'War veteran raised by the military. A series of trageties and horrific actions lead him to being incarcarated after retirement.',
+    description:
+      'War veteran raised by the military. A series of tragedies and horrific actions lead him to being incarcerated after retirement.',
     stats: {
       strength: 4,
       dexterity: 4,
@@ -215,7 +223,8 @@ export const characterList: Character[] = [
   {
     img: 'Gosusu.PNG',
     name: 'Gosusu',
-    description: 'Self-proclaimed witch who wants to master the dark arts...and experience something truely unforgettable.',
+    description:
+      'Self-proclaimed witch who wants to master the dark arts...and experience something truly unforgettable.',
     stats: {
       strength: 3,
       dexterity: 3,
@@ -236,7 +245,8 @@ export const characterList: Character[] = [
   {
     img: 'Grahm.PNG',
     name: 'Grahm',
-    description: 'Magical megolomaniac who will do anything in exchange for a magical artifact...or even some wizard blood.',
+    description:
+      'Magical megalomaniac who will do anything in exchange for a magical artifact...or even some wizard blood.',
     stats: {
       strength: 2,
       dexterity: 4,
@@ -256,7 +266,8 @@ export const characterList: Character[] = [
   {
     img: 'Grododu.PNG',
     name: 'Grododu',
-    description: 'WIDESKY NCO in charge of communications and tech innovation. He purposefully has the most repugnant personality.',
+    description:
+      'WIDESKY NCO in charge of communications and tech innovation. He purposefully has the most repugnant personality.',
     ability: {
       name: 'Genius',
       description: '',
@@ -290,7 +301,8 @@ export const characterList: Character[] = [
   {
     img: 'Hitoto.PNG',
     name: 'Hitoto',
-    description: 'PINPOINT platoon botonist. Having been raised in an aristocratic lifestyle, she joined the military to escape an arranged marriage.',
+    description:
+      'PINPOINT platoon botanist. Having been raised in an aristocratic lifestyle, she joined the military to escape an arranged marriage.',
     stats: {
       strength: 5,
       dexterity: 3,
@@ -310,7 +322,8 @@ export const characterList: Character[] = [
   {
     img: 'Jamimi.PNG',
     name: 'Jamimi',
-    description: 'War veteran and currently one of the leading doctors on Keron.',
+    description:
+      'War veteran and currently one of the leading doctors on Keron.',
     stats: {
       strength: 3,
       dexterity: 3,
@@ -330,7 +343,8 @@ export const characterList: Character[] = [
   {
     img: 'Jomara.PNG',
     name: 'Jomara',
-    description: 'WIDESKY hand-to-hand combat specialist. Her kindly sweetness dies quickly when in the face of bullshit.',
+    description:
+      'WIDESKY hand-to-hand combat specialist. Her kindly sweetness dies quickly when in the face of bullshit.',
     ability: {
       name: 'Test Subject',
       description: '',
@@ -363,7 +377,8 @@ export const characterList: Character[] = [
   {
     img: 'Keroro.PNG',
     name: 'Keroro',
-    description: 'ARMPIT platoon leader. He has a knack for comedy and loves to build gundom.',
+    description:
+      'ARMPIT platoon leader. He has a knack for comedy and loves to build gundam.',
     stats: {
       strength: 4,
       dexterity: 3,
@@ -383,7 +398,8 @@ export const characterList: Character[] = [
   {
     img: 'Kiki.PNG',
     name: 'Kiki',
-    description: 'A puppet controled by some infernal she-demon from another dimension.',
+    description:
+      'A puppet controlled by some infernal she-demon from another dimension.',
     stats: {
       strength: 3,
       dexterity: 4,
@@ -424,7 +440,8 @@ export const characterList: Character[] = [
   {
     img: 'Kujijil.PNG',
     name: 'Kujiji',
-    description: 'PINPOINT platoon leader. A bubbly and distracted woman who feels responcible for a tragety that befell her platoon.',
+    description:
+      'PINPOINT platoon leader. A bubbly and distracted woman who feels responsible for a tragedy that befell her platoon.',
     ability: {
       name: 'Charismatic',
       description: '',
@@ -459,7 +476,8 @@ export const characterList: Character[] = [
   {
     img: 'Kyohehe.PNG',
     name: 'Kyohehe',
-    description: 'PINPOINT platoon choreographer and drunkard. He has had feelings for Kujiji since they were kids, and laments never confessing.',
+    description:
+      'PINPOINT platoon choreographer and drunkard. He has had feelings for Kujiji since they were kids, and laments never confessing.',
     stats: {
       strength: 5,
       dexterity: 3,
@@ -480,7 +498,8 @@ export const characterList: Character[] = [
   {
     img: 'Lyudidi.PNG',
     name: 'Lyudidi',
-    description: 'A robot made with the skin of corpses. She has no AI and can only act when prompted or threatened.',
+    description:
+      'A robot made with the skin of corpses. She has no AI and can only act when prompted or threatened.',
     stats: {
       strength: 5,
       dexterity: 5,
@@ -502,7 +521,8 @@ export const characterList: Character[] = [
     img: 'Murama.PNG',
     name: 'Murama',
 
-    description: 'WIDESKY platoon explosives expert. A loveable but slow-whitted guy who cannot keep his hands to himself.',
+    description:
+      'WIDESKY platoon explosives expert. A lovable but slow-witted guy who cannot keep his hands to himself.',
     ability: {
       name: 'Test Subject',
       description: '',
@@ -556,7 +576,8 @@ export const characterList: Character[] = [
   {
     img: 'Nanami.PNG',
     name: 'Nanami',
-    description: '  WIDESKY training assassin. She struggles with attention due to being the youngest of many.',
+    description:
+      'WIDESKY training assassin. She struggles with attention due to being the youngest of many.',
     stats: {
       strength: 2,
       dexterity: 5,
@@ -577,7 +598,8 @@ export const characterList: Character[] = [
     img: 'Nenamo.PNG',
     name: 'Nenamo',
 
-    description: 'WIDESKY recon and infiltration expert. A shy sort who can see the feelings and intentions of others.',
+    description:
+      'WIDESKY recon and infiltration expert. A shy sort who can see the feelings and intentions of others.',
     ability: {
       name: 'Attuned',
       description: '',
@@ -611,7 +633,8 @@ export const characterList: Character[] = [
   {
     img: 'Rizizu.PNG',
     name: 'Rizizu',
-    description: 'WIDESKY engineer specialist. She is cold and brutally honest, but loyal and caring to those who know her.',
+    description:
+      'WIDESKY engineer specialist. She is cold and brutally honest, but loyal and caring to those who know her.',
     stats: {
       strength: 4,
       dexterity: 2,
@@ -631,7 +654,8 @@ export const characterList: Character[] = [
   {
     img: 'Romeme.PNG',
     name: 'Romeme',
-    description: 'Commanding officer of the many units making up squadron 80. He is trapped in a war of which he has grown tired of.',
+    description:
+      'Commanding officer of the many units making up squadron 80. He is trapped in a war of which he has grown tired of.',
     stats: {
       strength: 3,
       dexterity: 3,
@@ -652,7 +676,8 @@ export const characterList: Character[] = [
   {
     img: 'Ronana.PNG',
     name: 'Ronana',
-    description: 'Advocate for traumatized veterans, active protestor of the Keronian military givernment. She is loud and proud and will not back down.',
+    description:
+      'Advocate for traumatized veterans, active protestor of the Keronian military government. She is loud and proud and will not back down.',
     stats: {
       strength: 3,
       dexterity: 2,
@@ -673,7 +698,8 @@ export const characterList: Character[] = [
   {
     img: 'Scototo.PNG',
     name: 'Scototo',
-    description: 'Mysterious Keronian who was found by WIDESKY on Pokopen. His ability to retain information is impressive and he already has extensivie knowledge on Keronian tech..',
+    description:
+      'Mysterious Keronian who was found by WIDESKY on Pokopen. His ability to retain information is impressive and he already has extensive knowledge on Keronian tech..',
     stats: {
       strength: 3,
       dexterity: 3,
@@ -693,7 +719,8 @@ export const characterList: Character[] = [
   {
     img: 'Shadudu.PNG',
     name: 'Shadudu',
-    description: 'A shadow minion created by Akumu. Shad is all beef and no brain, but he has a good heart.',
+    description:
+      'A shadow minion created by Akumu. Shad is all beef and no brain, but he has a good heart.',
     ability: {
       name: 'Powerhouse',
       description: '',
@@ -728,7 +755,8 @@ export const characterList: Character[] = [
   {
     img: 'Shibibi.PNG',
     name: 'Shibibi',
-    description: 'Treasure hunter and sassy seasoned explorer. She loves nothing more than a good adventure (so long as there are riches to be had.)',
+    description:
+      'Treasure hunter and sassy seasoned explorer. She loves nothing more than a good adventure (so long as there are riches to be had.)',
     stats: {
       strength: 4,
       dexterity: 4,
@@ -749,7 +777,8 @@ export const characterList: Character[] = [
   {
     img: 'Tenbu.PNG',
     name: 'Tenbu',
-    description: 'An ancient woman who travels between universes to aid mortals with their troubles, and hopefully answer long-saught questions.',
+    description:
+      'An ancient woman who travels between universes to aid mortals with their troubles, and hopefully answer long-sought questions.',
     ability: {
       name: 'Medium',
       description: '',
@@ -785,7 +814,8 @@ export const characterList: Character[] = [
   {
     img: 'Teruru.PNG',
     name: 'Teruru',
-    description: 'Teruru is the top sniper stationed on planet Desandt. Lately he has been acting odd...scaring his coworkers...causing mayhem. The subject of nightmares.',
+    description:
+      'Teruru is the top sniper stationed on planet Desandt. Lately he has been acting odd...scaring his coworkers...causing mayhem. The subject of nightmares.',
     ability: {
       name: 'Marksman',
       description: '',
@@ -820,7 +850,8 @@ export const characterList: Character[] = [
   {
     img: 'Tikoko.PNG',
     name: 'Tikoko',
-    description: 'Nerdy roboticist and army veteran who survived the attack of the "29-1 slaughterer.',
+    description:
+      'Nerdy roboticist and army veteran who survived the attack of the "29-1 slaughterer.',
     ability: {
       name: 'Genius',
       description: '',
@@ -854,7 +885,8 @@ export const characterList: Character[] = [
   {
     img: 'Ulerara.PNG',
     name: 'Ulerara',
-    description: 'Eccentric woman who crash landed into WIDESKY base of opperations. Against better judgement, they dispelled her criminal charges for recruitment.',
+    description:
+      'Eccentric woman who crash landed into WIDESKY base of operations. Against better judgement, they dispelled her criminal charges for recruitment.',
     ability: {
       name: 'Undead',
       description: '',
@@ -888,7 +920,8 @@ export const characterList: Character[] = [
   {
     img: 'Usagi.PNG',
     name: 'Usagi',
-    description: 'A shadow minion created by Akumu. He cannot sit still or he will literally die.',
+    description:
+      'A shadow minion created by Akumu. He cannot sit still or he will literally die.',
     ability: {
       name: 'Indestructible',
       description: '',
@@ -923,7 +956,8 @@ export const characterList: Character[] = [
   {
     img: 'Xenono.PNG',
     name: 'Xenono',
-    description: 'Keronian-Shaasunian hybrid who struggles to connect with others. He also wants to kill all cirminals.',
+    description:
+      'Keronian-Shaasunian hybrid who struggles to connect with others. He also wants to kill all criminals.',
     stats: {
       strength: 3,
       dexterity: 5,
@@ -939,12 +973,13 @@ export const characterList: Character[] = [
     rank: Rank.NONE,
     isActiveService: false,
     generation: Generation.GEN_3,
-    age_detailed: '17'
+    age_detailed: '17',
   },
   {
     img: 'Xi.PNG',
     name: 'Xi',
-    description: 'An elusive master of diguise. No one knows his true name. No one knows where he came from.',
+    description:
+      'An elusive master of disguise. No one knows his true name. No one knows where he came from.',
     stats: {
       strength: 2,
       dexterity: 2,
@@ -965,7 +1000,8 @@ export const characterList: Character[] = [
   {
     img: 'Yamoro.PNG',
     name: 'Yamoro',
-    description: 'Leader of the WIDESKY platoon. He struggles balancing professionalism with his proclivity to care.',
+    description:
+      'Leader of the WIDESKY platoon. He struggles balancing professionalism with his proclivity to care.',
     ability: {
       name: 'Authoritative',
       description: '',
@@ -999,7 +1035,8 @@ export const characterList: Character[] = [
   {
     img: 'Yonana.PNG',
     name: 'Yonana',
-    description: 'War veteran who shed her cold exterior for something open and loving after being inspired by a dear friend.',
+    description:
+      'War veteran who shed her cold exterior for something open and loving after being inspired by a dear friend.',
     stats: {
       strength: 5,
       dexterity: 3,
@@ -1019,7 +1056,8 @@ export const characterList: Character[] = [
   {
     img: 'Yotaku.PNG',
     name: 'Yotaku',
-    description: 'Advanced Keroid of unknown origin. His AI is prone to going homicidal, often siting his desire to be real during fits.',
+    description:
+      'Advanced Keroid of unknown origin. His AI is prone to going homicidal, often siting his desire to be real during fits.',
     stats: {
       strength: 5,
       dexterity: 4,
@@ -1035,12 +1073,13 @@ export const characterList: Character[] = [
     rank: Rank.NONE,
     isActiveService: false,
     generation: Generation.GEN_0,
-    age_detailed: _REDACTEDTXT
+    age_detailed: _REDACTEDTXT,
   },
   {
     img: 'Zyena.PNG',
     name: 'Zyena',
-    description: 'A Shaasunian who is obsessed with a phenomenon called "The Strikers Blessing" by her people.',
+    description:
+      'A Shaasunian who is obsessed with a phenomenon called "The Strikers Blessing" by her people.',
     stats: {
       strength: 2,
       dexterity: 4,
@@ -1056,6 +1095,6 @@ export const characterList: Character[] = [
     rank: Rank.NONE,
     isActiveService: false,
     generation: Generation.GEN_2,
-    age_detailed: _REDACTEDTXT
+    age_detailed: _REDACTEDTXT,
   },
 ];
