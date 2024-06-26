@@ -204,7 +204,13 @@ export class CharacterDetailsComponent implements OnInit {
       isActiveService: new FormControl(character.isActiveService),
       generation: new FormControl(character.generation),
       age_detailed: new FormControl(character.age_detailed),
+      adjustedImgScalePct: new FormControl(character.adjustedImgScalePct),
     } as FormGrpControls<Character>);
+  }
+
+  onImgScaleChange() {
+    this.character!.adjustedImgScalePct =
+      this.characterInfoFormGroup.value.adjustedImgScalePct;
   }
 
   protected _statToIterable(statItem: StatDropDownOption) {
