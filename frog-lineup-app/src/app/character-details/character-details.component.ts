@@ -30,8 +30,22 @@ export interface Character {
   generation?: Generation;
   age_detailed?: string;
 
+  /**
+   * Adjusts the "actual" height of the character, for graph line placement purposes.
+   * i.e. if the character is shorter than their literal PNG dimensions by 20%, provide a value of 20 (i.e. the graph line should be 20% lower),
+   */
   adjustedImgScalePct?: number;
-  img?: string;
+  /**
+   * Adjusts the center of the character, relative to the left side.
+   * i.e. for characters that are not in the literal center of their PNG,
+   * a positive value (e.g. value=5) will move them 5% right, and a negative value will move them to the left.
+   */
+  adjustedImgLeftOffsetPct?: number;
+
+  /**
+   * image filename
+   */
+  img: string;
 
   /**
    * Don't touch this
@@ -129,6 +143,7 @@ export const noDataCharacter: Character = {
   rank: Rank.NONE,
   serviceYrs: 0,
   isActiveService: true,
+  img: 'noImg',
 };
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-definitions

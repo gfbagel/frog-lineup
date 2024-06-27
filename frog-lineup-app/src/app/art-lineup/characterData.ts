@@ -51,6 +51,7 @@ export const characterList: Character[] = [
     isActiveService: true,
     generation: Generation.GEN_2,
     adjustedImgScalePct: 160,
+    adjustedImgLeftOffsetPct: 100,
   },
   {
     img: 'Bulolo.PNG',
