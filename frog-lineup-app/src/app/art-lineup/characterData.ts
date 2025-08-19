@@ -41,7 +41,7 @@ export const characterList: Character[] = [
       intelligence: 0,
       wisdom: 0,
       charisma: 0,
-      luck: 0,
+      luck: 1,
     },
     age: 0,
     height: 0,
