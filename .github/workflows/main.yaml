@@ -34,6 +34,6 @@ jobs:
           branch: gh-pages
           folder: frog-lineup-app/dist/frog-lineup-app
           clean: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.FROG_DEPLOY_TOKEN }}
         env:
           CI: true
