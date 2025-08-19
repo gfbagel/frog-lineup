@@ -29,14 +29,19 @@
           ></div>
         </div>
       </div>
-      <!-- </div> -->
+
+      <!-- maxwidth is set here due to a firefox spacing bug -->
       <img
         #img
         class="image"
+        [style.max-width]="
+          !!img.offsetWidth ? img.offsetWidth + 'px' : undefined
+        "
         [style.transform]="
           'scale(' + (1 + character.adjustedImgScalePct! / 100) + ')'
         "
         [style.bottom]="character.adjustedImgScalePct! / 2 + '%'"
+        [style.left]="character.adjustedImgLeftOffsetPct! / 2 + '%'"
         [alt]="character.name"
         [src]="'img/' + character.img"
       />

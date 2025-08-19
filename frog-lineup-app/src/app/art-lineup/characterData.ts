@@ -10,7 +10,8 @@ export const characterList: Character[] = [
   {
     img: 'Akumu.PNG',
     name: 'Akumu',
-    description: 'Self-proclaimed King Akumu, who teleported from his medvieval-esc alternate universe to rule over planet Keron!',
+    description:
+      'Self-proclaimed King Akumu, who teleported from his medieval-esque alternate universe to rule over planet Keron!',
     stats: {
       strength: 3,
       dexterity: 3,
@@ -25,13 +26,38 @@ export const characterList: Character[] = [
     serviceYrs: 0,
     rank: Rank.NONE,
     isActiveService: false,
+    adjustedImgScalePct: 4,
     generation: Generation.GEN_0,
+    age_detailed: _REDACTEDTXT,
+  },
+  {
+    img: 'Bagele.PNG',
+    name: 'Bagele',
+    description:
+      'Description here',
+    stats: {
+      strength: 0,
+      dexterity: 0,
+      constitution: 0,
+      intelligence: 0,
+      wisdom: 0,
+      charisma: 0,
+      luck: 0,
+    },
+    age: 0,
+    height: 0,
+    serviceYrs: 0,
+    rank: Rank.NONE,
+    isActiveService: true,
+    adjustedImgScalePct: 1,
+    generation: Generation.GEN_2,
     age_detailed: _REDACTEDTXT,
   },
   {
     img: 'Bucklolo.PNG',
     name: 'Bucklolo',
-    description: 'Newest PINPOINT member recuited from a Keronian culture reserve. A first of many brought in by the Keronian Homogenization Program.',
+    description:
+      'Newest PINPOINT member recruited from a Keronian culture reserve. A first of many brought in by the Keronian Homogenization Program.',
     stats: {
       strength: 5,
       dexterity: 3,
@@ -47,12 +73,14 @@ export const characterList: Character[] = [
     rank: Rank.PRIVATE_1ST,
     isActiveService: true,
     generation: Generation.GEN_2,
-    adjustedImgScalePct: 150,
+    adjustedImgScalePct: 160,
+    adjustedImgLeftOffsetPct: 100,
   },
   {
     img: 'Bulolo.PNG',
     name: 'Bulolo',
-    description: 'Galactic-scale hitman and serial killer rumored to be the notorious "29-1 Slaughterer" who had been publically put to death.',
+    description:
+      'Galactic-scale hitman and serial killer rumored to be the notorious "29-1 Slaughterer" who had been publicly put to death.',
     ability: {
       name: 'Reflexive',
       description: '',
@@ -81,13 +109,37 @@ export const characterList: Character[] = [
     height: 22,
     rank: Rank.CORPORAL_LANCE,
     isActiveService: false,
+    adjustedImgScalePct: 4,
     generation: Generation.GEN_2,
     age_detailed: _REDACTEDTXT,
   },
   {
+    img: 'Cipepe.PNG',
+    name: 'Cipepe',
+    description:
+      'A fire-y young woman slicing her way through a cut-throat pirate life.',
+    stats: {
+      strength: 4,
+      dexterity: 5,
+      constitution: 4,
+      intelligence: 3,
+      wisdom: 3,
+      charisma: 2,
+      luck: 3,
+    },
+    age: 30,
+    height: 20,
+    serviceYrs: 0,
+    rank: Rank.NONE,
+    isActiveService: false,
+    adjustedImgScalePct: 1,
+    generation: Generation.GEN_2,
+  },
+  {
     img: 'Curoro.PNG',
     name: 'Curoro',
-    description: 'Cynical treasure hunter and army veteran who survived the attack of the "29-1 slaughterer.',
+    description:
+      'Cynical treasure hunter and army veteran who survived the attack of the "29-1 slaughterer.',
     stats: {
       strength: 4,
       dexterity: 4,
@@ -102,12 +154,14 @@ export const characterList: Character[] = [
     height: 19,
     rank: Rank.SERGEANT,
     isActiveService: false,
+    adjustedImgScalePct: 15,
     generation: Generation.GEN_2,
   },
   {
     img: 'Dalalu.PNG',
     name: 'Dalalu',
-    description: 'Son of a prevalent military family who quickly rose to a commissioned officer rank with the help of his father.',
+    description:
+      'Son of a prevalent military family who quickly rose to a commissioned officer rank with the help of his father.',
     ability: {
       name: 'Authoritative',
       description: '',
@@ -136,12 +190,14 @@ export const characterList: Character[] = [
     height: 24,
     rank: Rank.OFFICER_WARRANT,
     isActiveService: true,
+    adjustedImgScalePct: 6,
     generation: Generation.GEN_2,
   },
   {
     img: 'Dangaga.PNG',
     name: 'Dangaga',
-    description: 'Military man through and through. He even gave his body to the cause...but at a cost, of course.',
+    description:
+      'Military man through and through. He even gave his body to the cause...but at a cost, of course.',
     ability: {
       name: 'Test Subject',
       description: '',
@@ -170,12 +226,14 @@ export const characterList: Character[] = [
     height: 36,
     rank: Rank.SERGEANT_MAJOR,
     isActiveService: true,
+    adjustedImgScalePct: 10,
     generation: Generation.GEN_2,
   },
   {
     img: 'Deromo.PNG',
     name: 'Deromo',
-    description: 'War veteran and family man just trying to keep up the family farm.',
+    description:
+      'War veteran and family man just trying to keep up the family farm.',
     stats: {
       strength: 4,
       dexterity: 5,
@@ -190,12 +248,36 @@ export const characterList: Character[] = [
     height: 20,
     rank: Rank.SERGEANT_MAJOR,
     isActiveService: false,
+    adjustedImgScalePct: 7,
+    generation: Generation.GEN_1,
+  },
+  {
+    img: 'Febibi.PNG',
+    name: 'Febibi',
+    description:
+      'A loyal soldier who executes orders indescriminantly and without asking questions.',
+    stats: {
+      strength: 4,
+      dexterity: 4,
+      constitution: 4,
+      intelligence: 3,
+      wisdom: 3,
+      charisma: 3,
+      luck: 3,
+    },
+    age: 27,
+    serviceYrs: 14,
+    height: 20,
+    rank: Rank.COPORAL,
+    isActiveService: false,
+    adjustedImgScalePct: 4,
     generation: Generation.GEN_1,
   },
   {
     img: 'Gadodo.PNG',
     name: 'Gadodo',
-    description: 'War veteran raised by the military. A series of trageties and horrific actions lead him to being incarcarated after retirement.',
+    description:
+      'War veteran raised by the military. A series of tragedies and horrific actions lead him to being incarcerated after retirement.',
     stats: {
       strength: 4,
       dexterity: 4,
@@ -210,12 +292,14 @@ export const characterList: Character[] = [
     height: 21,
     rank: Rank.MAJOR,
     isActiveService: false,
+    adjustedImgScalePct: 4,
     generation: Generation.GEN_1,
   },
   {
     img: 'Gosusu.PNG',
     name: 'Gosusu',
-    description: 'Self-proclaimed witch who wants to master the dark arts...and experience something truely unforgettable.',
+    description:
+      'Self-proclaimed witch who wants to master the dark arts...and experience something truly unforgettable.',
     stats: {
       strength: 3,
       dexterity: 3,
@@ -230,13 +314,15 @@ export const characterList: Character[] = [
     height: 19,
     rank: Rank.NONE,
     isActiveService: false,
+    adjustedImgScalePct: 20,
     generation: Generation.GEN_3,
     age_detailed: '19',
   },
   {
     img: 'Grahm.PNG',
     name: 'Grahm',
-    description: 'Magical megolomaniac who will do anything in exchange for a magical artifact...or even some wizard blood.',
+    description:
+      'Magical megalomaniac who will do anything in exchange for a magical artifact...or even some wizard blood.',
     stats: {
       strength: 2,
       dexterity: 4,
@@ -251,12 +337,15 @@ export const characterList: Character[] = [
     height: 21,
     rank: Rank.NONE,
     isActiveService: false,
+    adjustedImgScalePct: 9,
+    generation: Generation.GEN_0,
     age_detailed: _REDACTEDTXT,
   },
   {
     img: 'Grododu.PNG',
     name: 'Grododu',
-    description: 'WIDESKY NCO in charge of communications and tech innovation. He purposefully has the most repugnant personality.',
+    description:
+      'WIDESKY NCO in charge of communications and tech innovation. He purposefully has the most repugnant personality.',
     ability: {
       name: 'Genius',
       description: '',
@@ -285,12 +374,14 @@ export const characterList: Character[] = [
     height: 27,
     rank: Rank.CORPORAL,
     isActiveService: true,
+    adjustedImgScalePct: 3,
     generation: Generation.GEN_2,
   },
   {
     img: 'Hitoto.PNG',
     name: 'Hitoto',
-    description: 'PINPOINT platoon botonist. Having been raised in an aristocratic lifestyle, she joined the military to escape an arranged marriage.',
+    description:
+      'PINPOINT platoon botanist. Having been raised in an aristocratic lifestyle, she joined the military to escape an arranged marriage.',
     stats: {
       strength: 5,
       dexterity: 3,
@@ -305,12 +396,36 @@ export const characterList: Character[] = [
     height: 19,
     rank: Rank.CORPORAL_LANCE,
     isActiveService: true,
+    adjustedImgScalePct: 15,
     generation: Generation.GEN_2,
+  },
+  {
+    img: 'Huckle.PNG',
+    name: 'Wolkeke',
+    description:
+      'Wayward psychologist and behavioral researcher struggling to keep his sanity about him.',
+    stats: {
+      strength: 2,
+      dexterity: 3,
+      constitution: 3,
+      intelligence: 4,
+      wisdom: 4,
+      charisma: 5,
+      luck: 3,
+    },
+    age: 62,
+    serviceYrs: 0,
+    height: 18,
+    rank: Rank.NONE,
+    isActiveService: false,
+    adjustedImgScalePct: 4,
+    generation: Generation.GEN_1,
   },
   {
     img: 'Jamimi.PNG',
     name: 'Jamimi',
-    description: 'War veteran and currently one of the leading doctors on Keron.',
+    description:
+      'War veteran and currently one of the leading doctors on Keron.',
     stats: {
       strength: 3,
       dexterity: 3,
@@ -325,12 +440,14 @@ export const characterList: Character[] = [
     height: 22,
     rank: Rank.CORPORAL_LANCE,
     isActiveService: false,
+    adjustedImgScalePct: 13,
     generation: Generation.GEN_1,
   },
   {
     img: 'Jomara.PNG',
     name: 'Jomara',
-    description: 'WIDESKY hand-to-hand combat specialist. Her kindly sweetness dies quickly when in the face of bullshit.',
+    description:
+      'WIDESKY hand-to-hand combat specialist. Her kindly sweetness dies quickly when in the face of bullshit.',
     ability: {
       name: 'Test Subject',
       description: '',
@@ -359,11 +476,14 @@ export const characterList: Character[] = [
     height: 19,
     rank: Rank.PRIVATE_SUPERIOR,
     isActiveService: true,
+    adjustedImgScalePct: 7,
+    generation: Generation.GEN_2,
   },
   {
     img: 'Keroro.PNG',
     name: 'Keroro',
-    description: 'ARMPIT platoon leader. He has a knack for comedy and loves to build gundom.',
+    description:
+      'ARMPIT platoon leader. He has a knack for comedy and loves to build gundam.',
     stats: {
       strength: 4,
       dexterity: 3,
@@ -378,12 +498,14 @@ export const characterList: Character[] = [
     height: 20,
     rank: Rank.SERGEANT,
     isActiveService: true,
+    adjustedImgScalePct: 4,
     age_detailed: _REDACTEDTXT,
   },
   {
     img: 'Kiki.PNG',
     name: 'Kiki',
-    description: 'A puppet controled by some infernal she-demon from another dimension.',
+    description:
+      'A puppet controlled by some infernal she-demon from another dimension.',
     stats: {
       strength: 3,
       dexterity: 4,
@@ -398,6 +520,8 @@ export const characterList: Character[] = [
     height: 18,
     rank: Rank.NONE,
     isActiveService: false,
+    adjustedImgScalePct: 20,
+    generation: Generation.GEN_0,
     age_detailed: _REDACTEDTXT,
   },
   {
@@ -418,13 +542,15 @@ export const characterList: Character[] = [
     height: 17,
     rank: Rank.NONE,
     isActiveService: true,
+    adjustedImgScalePct: 40,
     generation: Generation.GEN_0,
     age_detailed: _REDACTEDTXT,
   },
   {
     img: 'Kujijil.PNG',
     name: 'Kujiji',
-    description: 'PINPOINT platoon leader. A bubbly and distracted woman who feels responcible for a tragety that befell her platoon.',
+    description:
+      'PINPOINT platoon leader. A bubbly and distracted woman who feels responsible for a tragedy that befell her platoon.',
     ability: {
       name: 'Charismatic',
       description: '',
@@ -453,13 +579,15 @@ export const characterList: Character[] = [
     height: 21,
     rank: Rank.SERGEANT_MAJOR,
     isActiveService: true,
+    adjustedImgScalePct: 12,
     generation: Generation.GEN_1,
     age_detailed: '30',
   },
   {
     img: 'Kyohehe.PNG',
     name: 'Kyohehe',
-    description: 'PINPOINT platoon choreographer and drunkard. He has had feelings for Kujiji since they were kids, and laments never confessing.',
+    description:
+      'PINPOINT platoon choreographer and drunkard. He has had feelings for Kujiji since they were kids, and laments never confessing.',
     stats: {
       strength: 5,
       dexterity: 3,
@@ -474,13 +602,52 @@ export const characterList: Character[] = [
     height: 23,
     rank: Rank.SERGEANT,
     isActiveService: true,
+    adjustedImgScalePct: 33,
     generation: Generation.GEN_1,
     age_detailed: '30',
   },
   {
+    img: 'Little Sister.PNG',
+    name: 'Little Sister',
+    description:
+      'Mysterious child with a taste for frog flesh.',
+    ability: {
+      name: 'Cursed',
+      description: '',
+      statAffecting: 'charisma',
+      statValue: 1,
+      statModifier: StatMod.ADD,
+    },
+    weakness: {
+      name: 'Emaciated',
+      description: '',
+      statAffecting: 'strength',
+      statValue: 1,
+      statModifier: StatMod.SUBTRACT,
+    },
+    stats: {
+      strength: 3,
+      dexterity: 3,
+      constitution: 2,
+      intelligence: 3,
+      wisdom: 3,
+      charisma: 5,
+      luck: 5,
+    },
+    age: 7,
+    serviceYrs: 0,
+    height: 11,
+    rank: Rank.NONE,
+    isActiveService: false,
+    adjustedImgScalePct: 4,
+    generation: Generation.GEN_0,
+    age_detailed: _REDACTEDTXT,
+  },
+  {
     img: 'Lyudidi.PNG',
     name: 'Lyudidi',
-    description: 'A robot made with the skin of corpses. She has no AI and can only act when prompted or threatened.',
+    description:
+      'A robot made with the skin of corpses. She has no AI and can only act when prompted or threatened.',
     stats: {
       strength: 5,
       dexterity: 5,
@@ -495,14 +662,51 @@ export const characterList: Character[] = [
     height: 9,
     rank: Rank.NONE,
     isActiveService: false,
+    adjustedImgScalePct: 20,
     generation: Generation.GEN_0,
     age_detailed: _REDACTEDTXT,
   },
   {
+    img: 'Meatbag.PNG',
+    name: 'Meatbag',
+    description:
+      'Mindless slave to the cutest starving master.',
+    ability: {
+      name: 'Cursed',
+      description: '',
+      statAffecting: 'strength',
+      statValue: 1,
+      statModifier: StatMod.ADD,
+    },
+    weakness: {
+      name: 'Thrall',
+      description: '',
+      statAffecting: 'intelligence',
+      statValue: 1,
+      statModifier: StatMod.SUBTRACT,
+    },
+    stats: {
+      strength: 5,
+      dexterity: 3,
+      constitution: 5,
+      intelligence: 2,
+      wisdom: 3,
+      charisma: 3,
+      luck: 3,
+    },
+    age: 22,
+    serviceYrs: 0,
+    height: 19,
+    rank: Rank.NONE,
+    isActiveService: false,
+    adjustedImgScalePct: 4,
+    generation: Generation.GEN_2,
+  },
+  {
     img: 'Murama.PNG',
     name: 'Murama',
-
-    description: 'WIDESKY platoon explosives expert. A loveable but slow-whitted guy who cannot keep his hands to himself.',
+    description:
+      'WIDESKY platoon explosives expert. A lovable but slow-witted guy who cannot keep his hands to himself.',
     ability: {
       name: 'Test Subject',
       description: '',
@@ -531,6 +735,7 @@ export const characterList: Character[] = [
     height: 19,
     rank: Rank.CORPORAL_LANCE,
     isActiveService: true,
+    adjustedImgScalePct: 6,
     generation: Generation.GEN_2,
   },
   {
@@ -551,12 +756,14 @@ export const characterList: Character[] = [
     height: 19,
     rank: Rank.CORPORAL,
     isActiveService: false,
+    adjustedImgScalePct: 3,
     generation: Generation.GEN_1,
   },
   {
     img: 'Nanami.PNG',
     name: 'Nanami',
-    description: '  WIDESKY training assassin. She struggles with attention due to being the youngest of many.',
+    description:
+      'WIDESKY training assassin. She struggles with attention due to being the youngest of many.',
     stats: {
       strength: 2,
       dexterity: 5,
@@ -571,13 +778,15 @@ export const characterList: Character[] = [
     height: 19,
     rank: Rank.PRIVATE_3RD,
     isActiveService: true,
+    adjustedImgScalePct: 3,
     generation: Generation.GEN_2,
   },
   {
     img: 'Nenamo.PNG',
     name: 'Nenamo',
 
-    description: 'WIDESKY recon and infiltration expert. A shy sort who can see the feelings and intentions of others.',
+    description:
+      'WIDESKY recon and infiltration expert. A shy sort who can see the feelings and intentions of others.',
     ability: {
       name: 'Attuned',
       description: '',
@@ -606,12 +815,50 @@ export const characterList: Character[] = [
     height: 25,
     rank: Rank.CORPORAL,
     isActiveService: true,
+    adjustedImgScalePct: 13,
     generation: Generation.GEN_2,
+},
+  {
+    img: 'Onmomo.PNG',
+    name: 'Onmomo',
+    description:
+      'Head of DOUBT-FO and leading expert on Nekonian kind. He is a target of critism and mockery all across the Keron Military.',
+    ability: {
+      name: 'Stubborn',
+      description: '',
+      statAffecting: 'constitution',
+      statValue: 1,
+      statModifier: StatMod.ADD,
+    },
+    weakness: {
+      name: 'Humiliated',
+      description: '',
+      statAffecting: 'charisma',
+      statValue: 1,
+      statModifier: StatMod.SUBTRACT,
+    },
+    stats: {
+      strength: 4,
+      dexterity: 4,
+      constitution: 5,
+      intelligence: 3,
+      wisdom: 4,
+      charisma: 2,
+      luck: 2,
+    },
+    age: 76,
+    serviceYrs: 58,
+    height: 20,
+    rank: Rank.CAPTAIN,
+    isActiveService: true,
+    adjustedImgScalePct: 4,
+    generation: Generation.GEN_1,
   },
   {
     img: 'Rizizu.PNG',
     name: 'Rizizu',
-    description: 'WIDESKY engineer specialist. She is cold and brutally honest, but loyal and caring to those who know her.',
+    description:
+      'WIDESKY engineer specialist. She is cold and brutally honest, but loyal and caring to those who know her.',
     stats: {
       strength: 4,
       dexterity: 2,
@@ -626,12 +873,14 @@ export const characterList: Character[] = [
     height: 16,
     rank: Rank.SERGEANT,
     isActiveService: true,
+    adjustedImgScalePct: 4,
     generation: Generation.GEN_2,
   },
   {
     img: 'Romeme.PNG',
     name: 'Romeme',
-    description: 'Commanding officer of the many units making up squadron 80. He is trapped in a war of which he has grown tired of.',
+    description:
+      'Commanding officer of the many units making up squadron 80. He is trapped in a war of which he has grown tired of.',
     stats: {
       strength: 3,
       dexterity: 3,
@@ -646,13 +895,15 @@ export const characterList: Character[] = [
     height: 20,
     rank: Rank.MAJOR,
     isActiveService: true,
+    adjustedImgScalePct: 26,
     generation: Generation.GEN_1,
     age_detailed: '25',
   },
   {
     img: 'Ronana.PNG',
     name: 'Ronana',
-    description: 'Advocate for traumatized veterans, active protestor of the Keronian military givernment. She is loud and proud and will not back down.',
+    description:
+      'Advocate for traumatized veterans, active protestor of the Keronian military government. She is loud and proud and will not back down.',
     stats: {
       strength: 3,
       dexterity: 2,
@@ -667,13 +918,15 @@ export const characterList: Character[] = [
     height: 27,
     rank: Rank.NONE,
     isActiveService: false,
+    adjustedImgScalePct: 7,
     generation: Generation.GEN_1,
     age_detailed: 'DECEASED',
   },
   {
     img: 'Scototo.PNG',
     name: 'Scototo',
-    description: 'Mysterious Keronian who was found by WIDESKY on Pokopen. His ability to retain information is impressive and he already has extensivie knowledge on Keronian tech..',
+    description:
+      'Mysterious Keronian who was found by WIDESKY on Pokopen. His ability to retain information is impressive and he already has extensive knowledge on Keronian tech..',
     stats: {
       strength: 3,
       dexterity: 3,
@@ -688,12 +941,14 @@ export const characterList: Character[] = [
     height: 19,
     rank: Rank.NONE,
     isActiveService: false,
+    adjustedImgScalePct: 22,
     generation: Generation.GEN_2,
   },
   {
     img: 'Shadudu.PNG',
     name: 'Shadudu',
-    description: 'A shadow minion created by Akumu. Shad is all beef and no brain, but he has a good heart.',
+    description:
+      'A shadow minion created by Akumu. Shad is all beef and no brain, but he has a good heart.',
     ability: {
       name: 'Powerhouse',
       description: '',
@@ -722,13 +977,15 @@ export const characterList: Character[] = [
     height: 29,
     rank: Rank.NONE,
     isActiveService: false,
+    adjustedImgScalePct: 10,
     generation: Generation.GEN_0,
     age_detailed: _REDACTEDTXT,
   },
   {
     img: 'Shibibi.PNG',
     name: 'Shibibi',
-    description: 'Treasure hunter and sassy seasoned explorer. She loves nothing more than a good adventure (so long as there are riches to be had.)',
+    description:
+      'Treasure hunter and sassy seasoned explorer. She loves nothing more than a good adventure (so long as there are riches to be had.)',
     stats: {
       strength: 4,
       dexterity: 4,
@@ -747,9 +1004,54 @@ export const characterList: Character[] = [
     generation: Generation.GEN_2,
   },
   {
+    img: 'Shioyoyo.PNG',
+    name: 'Shioyoyo',
+    description:
+      'Lead of one DOUBT-FO-NES squad. He answers to Onmomo, and is both frustrated and eager to bag a Nekonian.',
+    stats: {
+      strength: 4,
+      dexterity: 3,
+      constitution: 4,
+      intelligence: 3,
+      wisdom: 4,
+      charisma: 3,
+      luck: 3,
+    },
+    age: 28,
+    serviceYrs: 14,
+    height: 20,
+    rank: Rank.NONE,
+    isActiveService: true,
+    adjustedImgScalePct: 8,
+    generation: Generation.GEN_2,
+  },
+  {
+    img: 'Takuku.PNG',
+    name: 'Takuku',
+    description:
+      'DOUBT-FO-NES squad member. Speaks when spoken to, follows orders, keeps his opinion to himself.',
+    stats: {
+      strength: 3,
+      dexterity: 4,
+      constitution: 5,
+      intelligence: 2,
+      wisdom: 3,
+      charisma: 3,
+      luck: 4,
+    },
+    age: 37,
+    serviceYrs: 23,
+    height: 23,
+    rank: Rank.NONE,
+    isActiveService: true,
+    adjustedImgScalePct: 5,
+    generation: Generation.GEN_2,
+  },
+  {
     img: 'Tenbu.PNG',
     name: 'Tenbu',
-    description: 'An ancient woman who travels between universes to aid mortals with their troubles, and hopefully answer long-saught questions.',
+    description:
+      'An ancient woman who travels between universes to aid mortals with their troubles, and hopefully answer long-sought questions.',
     ability: {
       name: 'Medium',
       description: '',
@@ -785,7 +1087,8 @@ export const characterList: Character[] = [
   {
     img: 'Teruru.PNG',
     name: 'Teruru',
-    description: 'Teruru is the top sniper stationed on planet Desandt. Lately he has been acting odd...scaring his coworkers...causing mayhem. The subject of nightmares.',
+    description:
+      'Teruru is the top sniper stationed on planet Desandt. Lately he has been acting odd...scaring his coworkers...causing mayhem. The subject of nightmares.',
     ability: {
       name: 'Marksman',
       description: '',
@@ -814,13 +1117,15 @@ export const characterList: Character[] = [
     height: 18,
     rank: Rank.LIEUTENANT_2ND,
     isActiveService: true,
+    adjustedImgScalePct: 10,
     generation: Generation.GEN_0,
     age_detailed: '37',
   },
   {
     img: 'Tikoko.PNG',
     name: 'Tikoko',
-    description: 'Nerdy roboticist and army veteran who survived the attack of the "29-1 slaughterer.',
+    description:
+      'Nerdy roboticist and army veteran who survived the attack of the "29-1 slaughterer.',
     ability: {
       name: 'Genius',
       description: '',
@@ -849,12 +1154,14 @@ export const characterList: Character[] = [
     height: 16,
     rank: Rank.CORPORAL,
     isActiveService: true,
+    adjustedImgScalePct: 4,
     generation: Generation.GEN_2,
   },
   {
     img: 'Ulerara.PNG',
     name: 'Ulerara',
-    description: 'Eccentric woman who crash landed into WIDESKY base of opperations. Against better judgement, they dispelled her criminal charges for recruitment.',
+    description:
+      'Eccentric woman who crash landed into WIDESKY base of operations. Against better judgement, they dispelled her criminal charges for recruitment.',
     ability: {
       name: 'Undead',
       description: '',
@@ -883,12 +1190,14 @@ export const characterList: Character[] = [
     height: 20,
     rank: Rank.PRIVATE_IN_TRAINING,
     isActiveService: true,
+    adjustedImgScalePct: 6,
     generation: Generation.GEN_2,
   },
   {
     img: 'Usagi.PNG',
     name: 'Usagi',
-    description: 'A shadow minion created by Akumu. He cannot sit still or he will literally die.',
+    description:
+      'A shadow minion created by Akumu. He cannot sit still or he will literally die.',
     ability: {
       name: 'Indestructible',
       description: '',
@@ -917,13 +1226,15 @@ export const characterList: Character[] = [
     height: 20,
     rank: Rank.NONE,
     isActiveService: false,
+    adjustedImgScalePct: 35,
     generation: Generation.GEN_0,
     age_detailed: _REDACTEDTXT,
   },
   {
     img: 'Xenono.PNG',
     name: 'Xenono',
-    description: 'Keronian-Shaasunian hybrid who struggles to connect with others. He also wants to kill all cirminals.',
+    description:
+      'Keronian-Shaasunian hybrid who struggles to connect with others. He also wants to kill all criminals.',
     stats: {
       strength: 3,
       dexterity: 5,
@@ -939,12 +1250,13 @@ export const characterList: Character[] = [
     rank: Rank.NONE,
     isActiveService: false,
     generation: Generation.GEN_3,
-    age_detailed: '17'
+    age_detailed: '17',
   },
   {
     img: 'Xi.PNG',
     name: 'Xi',
-    description: 'An elusive master of diguise. No one knows his true name. No one knows where he came from.',
+    description:
+      'An elusive master of disguise. No one knows his true name. No one knows where he came from.',
     stats: {
       strength: 2,
       dexterity: 2,
@@ -965,7 +1277,8 @@ export const characterList: Character[] = [
   {
     img: 'Yamoro.PNG',
     name: 'Yamoro',
-    description: 'Leader of the WIDESKY platoon. He struggles balancing professionalism with his proclivity to care.',
+    description:
+      'Leader of the WIDESKY platoon. He struggles balancing professionalism with his proclivity to care.',
     ability: {
       name: 'Authoritative',
       description: '',
@@ -994,12 +1307,36 @@ export const characterList: Character[] = [
     height: 17,
     rank: Rank.SERGEANT_MAJOR,
     isActiveService: true,
+    adjustedImgScalePct: 8,
+    generation: Generation.GEN_2,
+  },
+  {
+    img: 'Yarharhar.PNG',
+    name: 'Yarharhar',
+    description:
+      'Grandson of the legendary Pirate "Nitrotro." He has a lot to live up to.',
+    stats: {
+      strength: 4,
+      dexterity: 5,
+      constitution: 2,
+      intelligence: 5,
+      wisdom: 3,
+      charisma: 4,
+      luck: 1,
+    },
+    age: 41,
+    serviceYrs: 0,
+    height: 27,
+    rank: Rank.NONE,
+    isActiveService: false,
+    adjustedImgScalePct: 7,
     generation: Generation.GEN_2,
   },
   {
     img: 'Yonana.PNG',
     name: 'Yonana',
-    description: 'War veteran who shed her cold exterior for something open and loving after being inspired by a dear friend.',
+    description:
+      'War veteran who shed her cold exterior for something open and loving after being inspired by a dear friend.',
     stats: {
       strength: 5,
       dexterity: 3,
@@ -1014,12 +1351,14 @@ export const characterList: Character[] = [
     height: 16,
     rank: Rank.CAPTAIN,
     isActiveService: false,
+    adjustedImgScalePct: 7,
     generation: Generation.GEN_1,
   },
   {
     img: 'Yotaku.PNG',
     name: 'Yotaku',
-    description: 'Advanced Keroid of unknown origin. His AI is prone to going homicidal, often siting his desire to be real during fits.',
+    description:
+      'Advanced Keroid of unknown origin. His AI is prone to going homicidal, often siting his desire to be real during fits.',
     stats: {
       strength: 5,
       dexterity: 4,
@@ -1034,13 +1373,37 @@ export const characterList: Character[] = [
     height: 23,
     rank: Rank.NONE,
     isActiveService: false,
+    adjustedImgScalePct: 15,
     generation: Generation.GEN_0,
-    age_detailed: _REDACTEDTXT
+    age_detailed: _REDACTEDTXT,
+  },
+  {
+    img: 'Yururu.PNG',
+    name: 'Yururu',
+    description:
+      'Some dead rifleman idk lol',
+    stats: {
+      strength: 4,
+      dexterity: 3,
+      constitution: 4,
+      intelligence: 3,
+      wisdom: 4,
+      charisma: 3,
+      luck: 3,
+    },
+    age: 0,
+    serviceYrs: 0,
+    height: 20,
+    rank: Rank.NONE,
+    isActiveService: true,
+    adjustedImgScalePct: 4,
+    generation: Generation.GEN_2,
   },
   {
     img: 'Zyena.PNG',
     name: 'Zyena',
-    description: 'A Shaasunian who is obsessed with a phenomenon called "The Strikers Blessing" by her people.',
+    description:
+      'A Shaasunian who is obsessed with a phenomenon called "The Strikers Blessing" by her people.',
     stats: {
       strength: 2,
       dexterity: 4,
@@ -1055,7 +1418,8 @@ export const characterList: Character[] = [
     height: 18,
     rank: Rank.NONE,
     isActiveService: false,
+    adjustedImgScalePct: 5,
     generation: Generation.GEN_2,
-    age_detailed: _REDACTEDTXT
+    age_detailed: _REDACTEDTXT,
   },
 ];
