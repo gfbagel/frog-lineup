@@ -33,8 +33,7 @@ export const characterList: Character[] = [
   {
     img: 'Bagele.PNG',
     name: 'Bagele',
-    description:
-      'Description here',
+    description: 'Description here',
     stats: {
       strength: 0,
       dexterity: 0,
@@ -42,7 +41,7 @@ export const characterList: Character[] = [
       intelligence: 0,
       wisdom: 0,
       charisma: 0,
-      luck: 0,
+      luck: 1,
     },
     age: 0,
     height: 0,
@@ -268,7 +267,7 @@ export const characterList: Character[] = [
     age: 27,
     serviceYrs: 14,
     height: 20,
-    rank: Rank.COPORAL,
+    rank: Rank.CORPORAL,
     isActiveService: false,
     adjustedImgScalePct: 4,
     generation: Generation.GEN_1,
@@ -609,8 +608,7 @@ export const characterList: Character[] = [
   {
     img: 'Little Sister.PNG',
     name: 'Little Sister',
-    description:
-      'Mysterious child with a taste for frog flesh.',
+    description: 'Mysterious child with a taste for frog flesh.',
     ability: {
       name: 'Cursed',
       description: '',
@@ -669,8 +667,7 @@ export const characterList: Character[] = [
   {
     img: 'Meatbag.PNG',
     name: 'Meatbag',
-    description:
-      'Mindless slave to the cutest starving master.',
+    description: 'Mindless slave to the cutest starving master.',
     ability: {
       name: 'Cursed',
       description: '',
@@ -817,7 +814,7 @@ export const characterList: Character[] = [
     isActiveService: true,
     adjustedImgScalePct: 13,
     generation: Generation.GEN_2,
-},
+  },
   {
     img: 'Onmomo.PNG',
     name: 'Onmomo',
@@ -1380,8 +1377,7 @@ export const characterList: Character[] = [
   {
     img: 'Yururu.PNG',
     name: 'Yururu',
-    description:
-      'Some dead rifleman idk lol',
+    description: 'Some dead rifleman idk lol',
     stats: {
       strength: 4,
       dexterity: 3,

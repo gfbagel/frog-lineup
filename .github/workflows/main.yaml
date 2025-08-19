@@ -1,0 +1,39 @@
+# GitHub Actions workflow to build and deploy Angular app to gh-pages on prod branch commits
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - prod
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: frog-lineup-app
+
+      - name: Build Angular app
+        run: npm run build -- --configuration=production --base-href /frog-lineup/
+        working-directory: frog-lineup-app
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: frog-lineup-app/dist/frog-lineup-app/browser
+          clean: true
+          token: ${{ secrets.FROG_DEPLOY_TOKEN }}
+        env:
+          CI: true
