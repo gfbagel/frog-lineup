@@ -25,7 +25,7 @@ jobs:
         working-directory: frog-lineup-app
 
       - name: Build Angular app
-        run: npm run build -- --configuration=production
+  run: npm run build -- --configuration=production --base-href /frog-lineup/
         working-directory: frog-lineup-app
 
       - name: Deploy to GitHub Pages
