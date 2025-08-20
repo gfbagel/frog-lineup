@@ -498,7 +498,7 @@ export const characterList: Character[] = [
     height: 17,
     rank: Rank.CORPORAL,
     isActiveService: true,
-    adjustedImgScalePct: 15,
+    adjustedImgScalePct: 90,
     generation: Generation.GEN_2,
   },
   {
