@@ -46,7 +46,7 @@ export const characterList: Character[] = [
     age: 0,
     height: 0,
     serviceYrs: 0,
-    rank: Rank.NONE,
+    rank: Rank.SERGEANT,
     isActiveService: true,
     adjustedImgScalePct: 1,
     generation: Generation.GEN_2,
