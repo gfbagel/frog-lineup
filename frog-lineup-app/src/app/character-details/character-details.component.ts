@@ -172,6 +172,9 @@ export class CharacterDetailsComponent implements OnInit {
 
   characterInfoFormGroup!: FormGroup<FormGrpControls<Character>>;
 
+  // Make Math available in template
+  Math = Math;
+
   RankEnum = Rank;
   rankDropdownItems: { value: Rank; label: string }[] = Object.keys(Rank)
     .filter((f) => !isNaN(+f))
@@ -233,5 +236,57 @@ export class CharacterDetailsComponent implements OnInit {
       this.character?.stats[statItem.value],
     );
   }
+
+  // Helper functions for stat button state logic
+  isStatButtonFilled(buttonIndex: number, statValue: keyof Stats): boolean {
+    if (!this.character) return false;
+    const statTick = this.character.stats[statValue] || 0;
+    const isAbilityButton = this.isAbilityButton(buttonIndex, statValue);
+    const isWeaknessButton = this.isWeaknessButton(buttonIndex, statValue);
+
+    // Ability buttons are considered "filled" since they represent effective stat value
+    // Regular filled buttons when button index + 1 <= stat value
+    // Weakness buttons are NOT filled (they represent lost stat points)
+    return (
+      (buttonIndex + 1 <= statTick && !isWeaknessButton) || isAbilityButton
+    );
+  }
+
+  isAbilityButton(buttonIndex: number, statValue: keyof Stats): boolean {
+    if (!this.character?.ability) return false;
+    const statTick = this.character.stats[statValue] || 0;
+    return (
+      buttonIndex === statTick &&
+      this.character.ability.statAffecting === statValue
+    );
+  }
+
+  isWeaknessButton(buttonIndex: number, statValue: keyof Stats): boolean {
+    if (!this.character?.weakness) return false;
+    const statTick = this.character.stats[statValue] || 0;
+    return (
+      buttonIndex + 1 === statTick &&
+      this.character.weakness.statAffecting === statValue
+    );
+  }
+
+  getButtonIcon(buttonIndex: number, statValue: keyof Stats): string {
+    if (!this.character) return 'radio_button_unchecked';
+
+    const statTick = this.character.stats[statValue] || 0;
+    const isAbility = this.isAbilityButton(buttonIndex, statValue);
+    const isWeakness = this.isWeaknessButton(buttonIndex, statValue);
+
+    if (isAbility) {
+      return 'add';
+    } else if (isWeakness) {
+      return 'close';
+    } else if (buttonIndex + 1 <= statTick) {
+      return 'radio_button_checked';
+    } else {
+      return 'radio_button_unchecked';
+    }
+  }
+
   statsList = statsNames;
 }

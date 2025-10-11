@@ -4,7 +4,67 @@ html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: #f5f7fa;
+}
+
+// Global form styling improvements - removed conflicting white background
+.mat-mdc-form-field {
+  .mdc-text-field--filled {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+}
+
+// More compact button toggle groups
+.mat-button-toggle-group {
+  border-radius: 4px !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  height: 32px;
+
+  .mat-button-toggle {
+    border-radius: 0 !important;
+    height: 32px;
+    line-height: 32px;
+    font-size: 12px;
+
+    &:first-child {
+      border-top-left-radius: 4px !important;
+      border-bottom-left-radius: 4px !important;
+    }
+
+    &:last-child {
+      border-top-right-radius: 4px !important;
+      border-bottom-right-radius: 4px !important;
+    }
+
+    .mat-button-toggle-label-content {
+      line-height: 32px;
+      padding: 0 8px;
+    }
+  }
+}
+
+// Keep slide toggles at their default size to avoid breaking them
+
+// Scrollbar styling for better UX
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+
+  &:hover {
+    background: #a8a8a8;
+  }
 }

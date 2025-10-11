@@ -1,174 +1,232 @@
-<div class="container">
+<div class="container main-container">
   <div class="container">
-    <div #characterImg></div>
+    <div class="character-image-section" #characterImg></div>
     <div class="container" style="flex-direction: column" #textInfo>
-      <mat-form-field MatForm>
-        <mat-label>Name</mat-label>
-        <input matInput [formControl]="characterInfoFormGroup.controls.name" />
-      </mat-form-field>
-      <div class="container">
+      <div class="form-section">
+        <div class="form-section-title">Basic Information</div>
         <mat-form-field MatForm>
-          <mat-label>Ability</mat-label>
+          <mat-label>Name</mat-label>
           <input
             matInput
-            [formControl]="characterInfoFormGroup.controls.ability"
+            [formControl]="characterInfoFormGroup.controls.name"
           />
         </mat-form-field>
-        <mat-form-field MatForm>
-          <mat-label>Weakness</mat-label>
-          <input
-            matInput
-            [formControl]="characterInfoFormGroup.controls.weakness"
-          />
-        </mat-form-field>
-      </div>
-      <mat-form-field MatForm>
-        <mat-label>Misc.</mat-label>
-        <textarea
-          matInput
-          [formControl]="characterInfoFormGroup.controls.description"
-        ></textarea>
-      </mat-form-field>
-
-      <div class="container">
-        @if (characterInfoFormGroup.value.age_detailed) {
-          <mat-form-field>
-            <mat-label>Age</mat-label>
+        <div class="container">
+          <mat-form-field MatForm>
+            <mat-label>Ability</mat-label>
             <input
               matInput
-              [formControl]="characterInfoFormGroup.controls.age_detailed"
+              [formControl]="characterInfoFormGroup.controls.ability"
             />
           </mat-form-field>
-        } @else {
-          <mat-form-field>
-            <mat-label>Age</mat-label>
+          <mat-form-field MatForm>
+            <mat-label>Weakness</mat-label>
             <input
               matInput
-              [formControl]="characterInfoFormGroup.controls.age"
+              [formControl]="characterInfoFormGroup.controls.weakness"
             />
           </mat-form-field>
-        }
-        <mat-form-field>
-          <mat-label>Height (in.)</mat-label>
-          <input
+        </div>
+        <mat-form-field MatForm>
+          <mat-label>Misc.</mat-label>
+          <textarea
             matInput
-            [formControl]="characterInfoFormGroup.controls.height"
-          />
+            [formControl]="characterInfoFormGroup.controls.description"
+          ></textarea>
         </mat-form-field>
       </div>
 
-      <div class="container">
-        <mat-form-field>
-          <mat-label>Rank</mat-label>
-          <!-- <mat-select></mat-select>
-
-
-          <input
-            matInput
-            [formControl]="characterInfoFormGroup.controls.rank"
-          /> -->
-          <mat-select [formControl]="characterInfoFormGroup.controls.rank">
-            @for (stat of rankDropdownItems; track stat) {
-              <mat-option [value]="stat.value">{{ stat.label }}</mat-option>
-            }
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Service Years</mat-label>
-          <input
-            matInput
-            [formControl]="characterInfoFormGroup.controls.serviceYrs"
-          />
-        </mat-form-field>
-        <mat-slide-toggle
-          [formControl]="characterInfoFormGroup.controls.isActiveService"
-          >Active Service</mat-slide-toggle
-        >
+      <div class="form-section">
+        <div class="form-section-title">Physical Attributes</div>
+        <div class="container">
+          @if (characterInfoFormGroup.value.age_detailed) {
+            <mat-form-field>
+              <mat-label>Age</mat-label>
+              <input
+                matInput
+                [formControl]="characterInfoFormGroup.controls.age_detailed"
+              />
+            </mat-form-field>
+          } @else {
+            <mat-form-field>
+              <mat-label>Age</mat-label>
+              <input
+                matInput
+                [formControl]="characterInfoFormGroup.controls.age"
+              />
+            </mat-form-field>
+          }
+          <mat-form-field>
+            <mat-label>Height (in.)</mat-label>
+            <input
+              matInput
+              [formControl]="characterInfoFormGroup.controls.height"
+            />
+          </mat-form-field>
+        </div>
       </div>
 
-      <div class="container">
-        <mat-form-field>
-          <mat-label>Generation</mat-label>
-          <input
-            matInput
-            [formControl]="characterInfoFormGroup.controls.generation"
-          />
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Adjust Img Scale Preview (%)</mat-label>
-          <input
-            matInput
-            type="number"
-            [formControl]="characterInfoFormGroup.controls.adjustedImgScalePct"
-            (change)="onImgScaleChange()"
-          />
-        </mat-form-field>
+      <div class="form-section">
+        <div class="form-section-title">Military Service</div>
+        <div class="container">
+          <mat-form-field>
+            <mat-label>Rank</mat-label>
+            <mat-select [formControl]="characterInfoFormGroup.controls.rank">
+              @for (stat of rankDropdownItems; track stat) {
+                <mat-option [value]="stat.value">{{ stat.label }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Service Years</mat-label>
+            <input
+              matInput
+              [formControl]="characterInfoFormGroup.controls.serviceYrs"
+            />
+          </mat-form-field>
+          <mat-slide-toggle
+            [formControl]="characterInfoFormGroup.controls.isActiveService"
+            >Active Service</mat-slide-toggle
+          >
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-section-title">Additional Details</div>
+        <div class="container">
+          <mat-form-field>
+            <mat-label>Generation</mat-label>
+            <input
+              matInput
+              [formControl]="characterInfoFormGroup.controls.generation"
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Adjust Img Scale Preview (%)</mat-label>
+            <input
+              matInput
+              type="number"
+              [formControl]="
+                characterInfoFormGroup.controls.adjustedImgScalePct
+              "
+              (change)="onImgScaleChange()"
+            />
+          </mat-form-field>
+        </div>
       </div>
     </div>
   </div>
   <mat-divider vertical></mat-divider>
-  <div>
-    <mat-list #stats>
+  <div class="stats-section">
+    <div class="form-section-title">Character Stats</div>
+    <div class="stats-container" #stats>
       @for (stat of statsList; track stat; let last = $last) {
-        <mat-list-item style="overflow: visible">
-          <span
-            style="
-              height: 100px;
-              display: flex;
-              align-items: center;
-              gap: 10px;
-              padding-right: 25px;
+        <div
+          class="stat-row"
+          [attr.data-stat-value]="stat.value"
+          [attr.data-stat-name]="stat.value"
+          [attr.data-has-weakness]="
+            character?.weakness?.statAffecting === stat.value &&
+            (character?.stats?.[stat.value] || 0) > 0
+          "
+        >
+          <div
+            class="stat-background-fill"
+            [class.stat-fill-0]="
+              (character?.weakness?.statAffecting === stat.value
+                ? Math.max(0, (character?.stats?.[stat.value] || 0) - 1)
+                : character?.stats?.[stat.value]) === 0
             "
-          >
-            <div class="stat-text">
-              {{ stat.label_short }}
+            [class.stat-fill-1]="
+              (character?.weakness?.statAffecting === stat.value
+                ? Math.max(0, (character?.stats?.[stat.value] || 0) - 1)
+                : character?.stats?.[stat.value]) === 1
+            "
+            [class.stat-fill-2]="
+              (character?.weakness?.statAffecting === stat.value
+                ? Math.max(0, (character?.stats?.[stat.value] || 0) - 1)
+                : character?.stats?.[stat.value]) === 2
+            "
+            [class.stat-fill-3]="
+              (character?.weakness?.statAffecting === stat.value
+                ? Math.max(0, (character?.stats?.[stat.value] || 0) - 1)
+                : character?.stats?.[stat.value]) === 3
+            "
+            [class.stat-fill-4]="
+              (character?.weakness?.statAffecting === stat.value
+                ? Math.max(0, (character?.stats?.[stat.value] || 0) - 1)
+                : character?.stats?.[stat.value]) === 4
+            "
+            [class.stat-fill-5]="
+              (character?.weakness?.statAffecting === stat.value
+                ? Math.max(0, (character?.stats?.[stat.value] || 0) - 1)
+                : character?.stats?.[stat.value]) === 5
+            "
+            [class.stat-fill-6]="
+              (character?.weakness?.statAffecting === stat.value
+                ? Math.max(0, (character?.stats?.[stat.value] || 0) - 1)
+                : character?.stats?.[stat.value]) === 6
+            "
+            [attr.title]="
+              'Stat: ' +
+              stat.label_short +
+              ' = ' +
+              character?.stats?.[stat.value]
+            "
+          ></div>
+          <!-- Ability modifier: fills from current stat to next level -->
+          @if (
+            character?.ability?.statAffecting === stat.value &&
+            (character?.stats?.[stat.value] || 0) < 6
+          ) {
+            <div
+              class="stat-modifier-fill modifier-ability"
+              [style.left.%]="(character?.stats?.[stat.value] || 0) * 16.67"
+              [style.width.%]="16.67"
+            ></div>
+          }
+          <!-- Weakness modifier: fills the "lost" stat space -->
+          @if (
+            character?.weakness?.statAffecting === stat.value &&
+            (character?.stats?.[stat.value] || 0) > 0
+          ) {
+            <div
+              class="stat-modifier-fill modifier-weakness"
+              [style.left.%]="
+                ((character?.stats?.[stat.value] || 0) - 1) * 16.67
+              "
+              [style.width.%]="16.67"
+            ></div>
+          }
+          <div class="stat-content">
+            <div class="stat-info">
+              <div class="stat-label">{{ stat.label_short }}</div>
+              <div class="stat-modifier">{{ statAsModifier(stat.value) }}</div>
             </div>
-            <div class="stat-text">
-              {{ statAsModifier(stat.value) }}
-            </div>
-            @for (
-              statTick of _statToIterable(stat);
-              track $index;
-              let idx = $index
-            ) {
-              <div>
-                <button mat-mini-fab style="box-shadow: unset">
-                  <!-- {{ idx }}|{{ statTick }} -->
-                  <!-- boon -->
-                  @if (idx === statTick && character) {
-                    @if (character.ability?.statAffecting === stat.value) {
-                      <mat-icon>add_box</mat-icon>
-                    } @else {
-                      <mat-icon></mat-icon>
-                    }
-                    <!-- bane -->
-                  } @else if (idx + 1 === statTick && character) {
-                    @if (character.weakness?.statAffecting === stat.value) {
-                      <mat-icon>disabled_by_default</mat-icon>
-                    } @else {
-                      <mat-icon>check_box_outline_blank</mat-icon>
-                    }
-                  } @else if (character) {
-                    @if (idx + 1 <= statTick) {
-                      <mat-icon>check_box_outline_blank</mat-icon>
-                    } @else {
-                      <mat-icon></mat-icon>
-                    }
-                  } @else {
-                    <mat-list-item disabled
-                      ><mat-icon>check_box_outline_blank</mat-icon>
-                    </mat-list-item>
-                  }
+            <div class="stat-buttons">
+              @for (
+                statTick of _statToIterable(stat);
+                track $index;
+                let idx = $index
+              ) {
+                <button
+                  class="stat-button"
+                  [class.stat-filled]="isStatButtonFilled(idx, stat.value)"
+                  [class.stat-unfilled]="!isStatButtonFilled(idx, stat.value)"
+                  [class.stat-ability]="isAbilityButton(idx, stat.value)"
+                  [class.stat-weakness]="isWeaknessButton(idx, stat.value)"
+                  mat-mini-fab
+                >
+                  <mat-icon>{{ getButtonIcon(idx, stat.value) }}</mat-icon>
                 </button>
-              </div>
-            }
-          </span>
-        </mat-list-item>
-
-        @if (!last) {
-          <mat-divider></mat-divider>
-        }
+              }
+            </div>
+          </div>
+          @if (!last) {
+            <div class="stat-divider"></div>
+          }
+        </div>
       }
-    </mat-list>
+    </div>
   </div>
 </div>
