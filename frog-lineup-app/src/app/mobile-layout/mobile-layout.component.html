@@ -1,0 +1,54 @@
+<div class="mobile-container">
+  <!-- Main content area with padding for bottom nav -->
+  <div class="mobile-content">
+    <router-outlet></router-outlet>
+  </div>
+
+  <!-- Bottom Material Tabs Navigation -->
+  <mat-tab-group
+    class="mobile-bottom-tabs"
+    [selectedIndex]="selectedTabIndex"
+    (selectedTabChange)="onTabChange($event)"
+    animationDuration="200ms"
+    mat-stretch-tabs
+  >
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>view_list</mat-icon>
+        <span class="tab-label">Lineup</span>
+      </ng-template>
+    </mat-tab>
+
+    <mat-tab
+      [disabled]="(selectedCharacter$ | async) === null"
+      [matTooltip]="
+        (selectedCharacter$ | async) === null
+          ? 'Must select a character first'
+          : ''
+      "
+      matTooltipPosition="above"
+      matTooltipClass="disabled-tab-tooltip"
+    >
+      <ng-template mat-tab-label>
+        <mat-icon>bar_chart</mat-icon>
+        <span class="tab-label">Stats</span>
+      </ng-template>
+    </mat-tab>
+
+    <mat-tab
+      [disabled]="(selectedCharacter$ | async) === null"
+      [matTooltip]="
+        (selectedCharacter$ | async) === null
+          ? 'Must select a character first'
+          : ''
+      "
+      matTooltipPosition="above"
+      matTooltipClass="disabled-tab-tooltip"
+    >
+      <ng-template mat-tab-label>
+        <mat-icon>info</mat-icon>
+        <span class="tab-label">Info</span>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</div>

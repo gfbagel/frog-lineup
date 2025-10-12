@@ -1,19 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { StatDropDownOption, statsNames } from '../sort-bar/sort-bar.component';
-import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import {
-  FormControl,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatSelectModule } from '@angular/material/select';
-import { KeyValuePipe } from '@angular/common';
+import { FormControl } from '@angular/forms';
+import { statsNames } from '../sort-bar/sort-bar.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { CharacterInfoComponent } from './character-info/character-info.component';
+import { CharacterStatsComponent } from './character-stats/character-stats.component';
 
 export interface Character {
   name: string;
@@ -146,147 +136,33 @@ export const noDataCharacter: Character = {
   img: 'noImg',
 };
 
-// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 export type FormGrpControls<T> = Record<keyof T, FormControl>;
 
 @Component({
   selector: 'app-character-details',
   standalone: true,
-  imports: [
-    MatListModule,
-    MatIconModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatSlideToggleModule,
-    MatSelectModule,
-    KeyValuePipe,
-  ],
+  imports: [MatDividerModule, CharacterInfoComponent, CharacterStatsComponent],
   templateUrl: './character-details.component.html',
   styleUrl: './character-details.component.scss',
 })
 export class CharacterDetailsComponent implements OnInit {
-  @Input() character?: Character;
+  @Input() character: Character | null = null;
 
-  characterInfoFormGroup!: FormGroup<FormGrpControls<Character>>;
-
-  // Make Math available in template
-  Math = Math;
-
-  RankEnum = Rank;
-  rankDropdownItems: { value: Rank; label: string }[] = Object.keys(Rank)
+  rankDropdownItems: { value: string; label: string }[] = Object.keys(Rank)
     .filter((f) => !isNaN(+f))
-    .map((x) => ({ label: Rank[+x], value: +x }));
-
-  ngOnInit() {
-    if (this.character) {
-      this.loadCharacterData(this.character);
-    } else {
-      this.character = noDataCharacter;
-      this.loadCharacterData(noDataCharacter);
-    }
-  }
-
-  statAsModifier(stat: keyof Stats): string {
-    let modVal = this.character!.stats[stat] - averageStatThreshold;
-    if (
-      this.character?.ability &&
-      this.character.ability.statAffecting === stat
-    ) {
-      modVal += this.character.ability.statValue;
-    }
-    if (
-      this.character?.weakness &&
-      this.character.weakness.statAffecting === stat
-    ) {
-      modVal -= this.character.weakness.statValue;
-    }
-    return `${modVal >= 0 ? '+' : ''}${modVal}`;
-  }
-
-  loadCharacterData(character: Character) {
-    this.character = character;
-    this.characterInfoFormGroup = new FormGroup({
-      name: new FormControl<string>(character.name),
-      ability: new FormControl<string>(character.ability?.name ?? _REDACTEDTXT),
-      weakness: new FormControl<string>(
-        character.weakness?.name ?? _REDACTEDTXT,
-      ),
-      description: new FormControl<string>(character.description),
-      age: new FormControl(character.age),
-      height: new FormControl(character.height),
-      rank: new FormControl(character.rank),
-      serviceYrs: new FormControl(character.serviceYrs),
-      isActiveService: new FormControl(character.isActiveService),
-      generation: new FormControl(character.generation),
-      age_detailed: new FormControl(character.age_detailed),
-      adjustedImgScalePct: new FormControl(character.adjustedImgScalePct),
-    } as FormGrpControls<Character>);
-  }
-
-  onImgScaleChange() {
-    this.character!.adjustedImgScalePct =
-      this.characterInfoFormGroup.value.adjustedImgScalePct;
-  }
-
-  protected _statToIterable(statItem: StatDropDownOption) {
-    return Array(maximumStatThreshold).fill(
-      this.character?.stats[statItem.value],
-    );
-  }
-
-  // Helper functions for stat button state logic
-  isStatButtonFilled(buttonIndex: number, statValue: keyof Stats): boolean {
-    if (!this.character) return false;
-    const statTick = this.character.stats[statValue] || 0;
-    const isAbilityButton = this.isAbilityButton(buttonIndex, statValue);
-    const isWeaknessButton = this.isWeaknessButton(buttonIndex, statValue);
-
-    // Ability buttons are considered "filled" since they represent effective stat value
-    // Regular filled buttons when button index + 1 <= stat value
-    // Weakness buttons are NOT filled (they represent lost stat points)
-    return (
-      (buttonIndex + 1 <= statTick && !isWeaknessButton) || isAbilityButton
-    );
-  }
-
-  isAbilityButton(buttonIndex: number, statValue: keyof Stats): boolean {
-    if (!this.character?.ability) return false;
-    const statTick = this.character.stats[statValue] || 0;
-    return (
-      buttonIndex === statTick &&
-      this.character.ability.statAffecting === statValue
-    );
-  }
-
-  isWeaknessButton(buttonIndex: number, statValue: keyof Stats): boolean {
-    if (!this.character?.weakness) return false;
-    const statTick = this.character.stats[statValue] || 0;
-    return (
-      buttonIndex + 1 === statTick &&
-      this.character.weakness.statAffecting === statValue
-    );
-  }
-
-  getButtonIcon(buttonIndex: number, statValue: keyof Stats): string {
-    if (!this.character) return 'radio_button_unchecked';
-
-    const statTick = this.character.stats[statValue] || 0;
-    const isAbility = this.isAbilityButton(buttonIndex, statValue);
-    const isWeakness = this.isWeaknessButton(buttonIndex, statValue);
-
-    if (isAbility) {
-      return 'add';
-    } else if (isWeakness) {
-      return 'close';
-    } else if (buttonIndex + 1 <= statTick) {
-      return 'radio_button_checked';
-    } else {
-      return 'radio_button_unchecked';
-    }
-  }
+    .map((x) => ({ label: Rank[+x], value: x }));
 
   statsList = statsNames;
+
+  ngOnInit() {
+    if (!this.character) {
+      this.character = noDataCharacter;
+    }
+  }
+
+  onStatChanged(event: { stat: keyof Stats; value: number }) {
+    if (this.character) {
+      this.character.stats[event.stat] = event.value;
+    }
+  }
 }

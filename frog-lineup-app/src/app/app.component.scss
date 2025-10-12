@@ -40,3 +40,33 @@
 mat-divider {
   border-top-color: #e0e0e0 !important;
 }
+
+/* Responsive Layout Switching */
+.desktop-layout {
+  display: block;
+}
+
+.mobile-layout {
+  display: none;
+}
+
+/* Mobile Layout */
+@media (max-width: 767px) {
+  .desktop-layout {
+    display: none;
+  }
+
+  .mobile-layout {
+    display: block;
+  }
+}
+
+/* Ensure mobile layout takes full viewport on mobile */
+@media (max-width: 767px) {
+  :host {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+}

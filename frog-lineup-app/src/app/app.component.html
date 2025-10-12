@@ -1,16 +1,24 @@
-<div class="app-container">
-  <div class="section">
-    <app-character-details #characterDetails></app-character-details>
+<!-- Desktop Layout -->
+<div class="desktop-layout">
+  <div class="app-container">
+    <div class="section">
+      <app-character-details #characterDetails></app-character-details>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="section">
+      <app-sort-bar (sortChanged)="updateLineUpSort($event)"></app-sort-bar>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="art-lineup-section">
+      <app-art-lineup
+        #artLineup
+        (characterClicked)="onCharacterClicked($event)"
+      ></app-art-lineup>
+    </div>
   </div>
-  <mat-divider></mat-divider>
-  <div class="section">
-    <app-sort-bar (sortChanged)="updateLineUpSort($event)"></app-sort-bar>
-  </div>
-  <mat-divider></mat-divider>
-  <div class="art-lineup-section">
-    <app-art-lineup
-      #artLineup
-      (characterClicked)="onCharacterClicked($event)"
-    ></app-art-lineup>
-  </div>
+</div>
+
+<!-- Mobile Layout Router -->
+<div class="mobile-layout">
+  <router-outlet></router-outlet>
 </div>

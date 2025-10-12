@@ -1,0 +1,70 @@
+<div class="stats-section">
+  <div class="form-section-title">Character Stats</div>
+  <div class="stats-container" #stats>
+    @for (stat of statsList; track stat.value; let last = $last) {
+      <div
+        class="stat-row"
+        [attr.data-stat-value]="stat.value"
+        [attr.data-stat-name]="stat.value"
+        [attr.data-has-weakness]="
+          character?.weakness?.statAffecting === stat.value &&
+          (character?.stats?.[stat.value] || 0) > 0
+        "
+      >
+        <div
+          class="stat-background-fill"
+          [class.stat-fill-0]="getEffectiveStatValue(stat.value) === 0"
+          [class.stat-fill-1]="getEffectiveStatValue(stat.value) === 1"
+          [class.stat-fill-2]="getEffectiveStatValue(stat.value) === 2"
+          [class.stat-fill-3]="getEffectiveStatValue(stat.value) === 3"
+          [class.stat-fill-4]="getEffectiveStatValue(stat.value) === 4"
+          [class.stat-fill-5]="getEffectiveStatValue(stat.value) === 5"
+          [class.stat-fill-6]="getEffectiveStatValue(stat.value) === 6"
+        ></div>
+
+        <div
+          class="stat-modifier-fill"
+          [class.modifier-ability]="
+            character?.ability?.statAffecting === stat.value
+          "
+          [class.modifier-weakness]="
+            character?.weakness?.statAffecting === stat.value
+          "
+          [style.width.%]="getModifierFillWidth(stat.value)"
+          [style.left.%]="getModifierFillLeft(stat.value)"
+        ></div>
+
+        <div class="stat-content">
+          <div class="stat-info">
+            <div class="stat-label">{{ stat.label_short }}</div>
+            <div class="stat-modifier">
+              {{ statAsModifier(stat.value) }}
+            </div>
+          </div>
+          <div class="stat-buttons">
+            @for (
+              statTick of _statToIterable();
+              track $index;
+              let idx = $index
+            ) {
+              <button
+                class="stat-button"
+                [class.stat-filled]="isStatButtonFilled(idx, stat.value)"
+                [class.stat-unfilled]="!isStatButtonFilled(idx, stat.value)"
+                [class.stat-ability]="isAbilityButton(idx, stat.value)"
+                [class.stat-weakness]="isWeaknessButton(idx, stat.value)"
+                mat-mini-fab
+                (click)="onStatButtonClick(idx, stat.value)"
+              >
+                <mat-icon>{{ getButtonIcon(idx, stat.value) }}</mat-icon>
+              </button>
+            }
+          </div>
+        </div>
+        @if (!last) {
+          <div class="stat-divider"></div>
+        }
+      </div>
+    }
+  </div>
+</div>

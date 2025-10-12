@@ -1,0 +1,113 @@
+<div class="character-info-container">
+  <!-- <div class="character-image-section" #characterImg></div> -->
+  <div class="form-container">
+    <div class="form-section">
+      <div class="form-section-title">Basic Information</div>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput [formControl]="characterInfoFormGroup.controls.name" />
+      </mat-form-field>
+      <div class="form-row">
+        <mat-form-field>
+          <mat-label>Ability</mat-label>
+          <input
+            matInput
+            [formControl]="characterInfoFormGroup.controls.ability"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Weakness</mat-label>
+          <input
+            matInput
+            [formControl]="characterInfoFormGroup.controls.weakness"
+          />
+        </mat-form-field>
+      </div>
+      <mat-form-field>
+        <mat-label>Misc.</mat-label>
+        <textarea
+          style="height: 75px"
+          matInput
+          [formControl]="characterInfoFormGroup.controls.description"
+        ></textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-title">Physical Attributes</div>
+      <div class="form-row">
+        @if (characterInfoFormGroup.value.age_detailed) {
+          <mat-form-field>
+            <mat-label>Age</mat-label>
+            <input
+              matInput
+              [formControl]="characterInfoFormGroup.controls.age_detailed"
+            />
+          </mat-form-field>
+        } @else {
+          <mat-form-field>
+            <mat-label>Age</mat-label>
+            <input
+              matInput
+              [formControl]="characterInfoFormGroup.controls.age"
+            />
+          </mat-form-field>
+        }
+        <mat-form-field>
+          <mat-label>Height (in.)</mat-label>
+          <input
+            matInput
+            [formControl]="characterInfoFormGroup.controls.height"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-title">Military Service</div>
+      <div class="form-row">
+        <mat-form-field>
+          <mat-label>Rank</mat-label>
+          <mat-select [formControl]="characterInfoFormGroup.controls.rank">
+            @for (stat of rankDropdownItems; track stat) {
+              <mat-option [value]="stat.value">{{ stat.label }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Service Years</mat-label>
+          <input
+            matInput
+            [formControl]="characterInfoFormGroup.controls.serviceYrs"
+          />
+        </mat-form-field>
+      </div>
+      <mat-slide-toggle
+        [formControl]="characterInfoFormGroup.controls.isActiveService"
+        >Active Service</mat-slide-toggle
+      >
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-title">Additional Details</div>
+      <div class="form-row">
+        <mat-form-field>
+          <mat-label>Generation</mat-label>
+          <input
+            matInput
+            [formControl]="characterInfoFormGroup.controls.generation"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Adjust Img Scale Preview (%)</mat-label>
+          <input
+            matInput
+            type="number"
+            [formControl]="characterInfoFormGroup.controls.adjustedImgScalePct"
+            (change)="onImgScaleChange()"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</div>

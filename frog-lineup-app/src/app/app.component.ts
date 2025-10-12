@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import {
   Character,
   CharacterDetailsComponent,
@@ -17,6 +18,7 @@ import { MatDividerModule } from '@angular/material/divider';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   imports: [
+    CommonModule,
     RouterOutlet,
     CharacterDetailsComponent,
     ArtLineupComponent,
@@ -41,6 +43,8 @@ export class AppComponent {
   }
 
   onCharacterClicked(event: Character) {
-    this.characterDetails?.loadCharacterData(event);
+    if (this.characterDetails) {
+      this.characterDetails.character = event;
+    }
   }
 }

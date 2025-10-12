@@ -23,15 +23,17 @@ $lineup-padding: 40px;
 .line {
   position: relative;
   z-index: 1;
+  pointer-events: none;
 }
 
 .second-line {
-  height: 5px;
   position: absolute;
   left: 0;
   height: 2px;
   opacity: 40%;
   transition: opacity 0.3s ease-out;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .line-container {
@@ -39,6 +41,7 @@ $lineup-padding: 40px;
   flex-shrink: 0;
   overflow: visible;
   width: 0;
+  pointer-events: none;
 }
 
 .not-hovered {
@@ -50,6 +53,7 @@ $lineup-padding: 40px;
   position: relative;
   z-index: 2;
   max-width: 100%;
+  pointer-events: none; // Prevent direct interaction with image, force through container
   // left: -100%;
 }
 
@@ -57,4 +61,17 @@ $lineup-padding: 40px;
   opacity: 100%;
   transition: opacity 0.3s ease-out;
   // background-color: red !important;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .lineup {
+    padding: 20px;
+    height: 300px;
+    min-width: max-content;
+  }
+
+  .img-container {
+    touch-action: manipulation;
+  }
 }

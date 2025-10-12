@@ -3,7 +3,7 @@ import {
   EventEmitter,
   Output,
   ViewChild,
-  AfterViewInit,
+  OnInit,
 } from '@angular/core';
 import {
   MatButtonToggleGroup,
@@ -15,6 +15,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { Stats } from '../character-details/character-details.component';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { SortStateService } from '../services/sort-state.service';
 
 export enum SortType {
   NAME,
@@ -85,14 +86,36 @@ export const statsNames: StatDropDownOption[] = [
   templateUrl: './sort-bar.component.html',
   styleUrl: './sort-bar.component.scss',
 })
-export class SortBarComponent implements AfterViewInit {
+export class SortBarComponent implements OnInit {
   @ViewChild('sortingToggleBtnGrp') sortingToggleBtnGrp?: MatButtonToggleGroup;
   @Output() sortChanged = new EventEmitter<{
     sortType: SortType | null;
     sortStat: keyof Stats | null;
     hideNAChars: boolean | null;
   }>();
+
+  // Form controls
+  SortTypeEnum = SortType;
+  sortTypeCtrl = new FormControl<SortType>(SortType.NAME); // Default to NAME
+  sortingStatCtrl = new FormControl<keyof Stats>({
+    disabled: true,
+    value: 'strength',
+  });
   hideNACharsCtrl = new FormControl(true);
+  statsNames = statsNames;
+
+  constructor(private sortStateService: SortStateService) {
+    // Restore form controls from saved state
+    const savedState = this.sortStateService.sortState;
+    this.sortTypeCtrl.setValue(savedState.sortType || SortType.NAME);
+    this.sortingStatCtrl.setValue(savedState.sortStat || 'strength');
+    this.hideNACharsCtrl.setValue(savedState.hideNAChars ?? true);
+
+    // Update disabled state of stat control
+    if (savedState.sortType === SortType.STAT) {
+      this.sortingStatCtrl.enable();
+    }
+  }
 
   onSortStatChange() {
     this.sortChanged.emit({
@@ -114,18 +137,36 @@ export class SortBarComponent implements AfterViewInit {
     });
   }
 
-  ngAfterViewInit() {
-    this.onSortChange();
+  ngOnInit() {
+    this.sortTypeCtrl.valueChanges.subscribe((sortType) => {
+      if (sortType === SortType.STAT) {
+        this.sortingStatCtrl.enable();
+      } else {
+        this.sortingStatCtrl.disable();
+      }
+
+      this.emit();
+    });
+
+    this.sortingStatCtrl.valueChanges.subscribe(() => this.emit());
+    this.hideNACharsCtrl.valueChanges.subscribe(() => this.emit());
   }
 
-  SortTypeEnum = SortType;
-  sortTypeCtrl = new FormControl<SortType>(SortType.NAME);
-  sortingStatCtrl = new FormControl<keyof Stats>({
-    disabled: !this.isSortingByStat,
-    value: 'strength',
-  });
+  emit() {
+    // Save current state to service
+    this.sortStateService.updateSortState({
+      sortType: this.sortTypeCtrl.value || SortType.NAME,
+      sortStat: this.sortingStatCtrl.value,
+      hideNAChars: this.hideNACharsCtrl.value || false,
+    });
 
-  statsNames = statsNames;
+    // Emit the change
+    this.sortChanged.emit({
+      sortStat: this.sortingStatCtrl.value,
+      sortType: this.sortTypeCtrl.value,
+      hideNAChars: this.hideNACharsCtrl.value,
+    });
+  }
 
   get isSortingByStat() {
     if (this.sortTypeCtrl) {

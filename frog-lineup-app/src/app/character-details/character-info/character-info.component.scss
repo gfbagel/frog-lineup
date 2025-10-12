@@ -1,0 +1,125 @@
+.character-info-container {
+  display: flex;
+  gap: 12px;
+  min-width: 0;
+  height: 100%;
+
+  // Mobile responsive adjustments
+  @media (max-width: 768px) {
+    gap: 8px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 6px;
+  }
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+
+  // Mobile responsive adjustments
+  @media (max-width: 768px) {
+    gap: 6px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 4px;
+  }
+}
+
+.form-section {
+  background: transparent;
+  padding: 8px 0;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
+  min-height: 0;
+
+  // Mobile responsive adjustments
+  @media (max-width: 768px) {
+    padding: 6px 0;
+    margin-bottom: 6px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 4px 0;
+    margin-bottom: 4px;
+  }
+}
+
+.form-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.form-section-title {
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #424242;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  // Mobile responsive adjustments
+  @media (max-width: 768px) {
+    margin-bottom: 6px;
+    font-size: 11px;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 4px;
+    font-size: 10px;
+  }
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+}
+
+mat-form-field {
+  width: 100%;
+
+  // Mobile responsive adjustments
+  @media (max-width: 768px) {
+    ::ng-deep .mat-mdc-form-field-subscript-wrapper {
+      display: none; // Hide hint/error text to save space
+    }
+  }
+
+  @media (max-width: 480px) {
+    ::ng-deep .mat-mdc-text-field-wrapper {
+      padding: 8px 12px; // Reduce padding
+    }
+
+    ::ng-deep .mat-mdc-form-field-infix {
+      min-height: 40px; // Reduce height
+    }
+  }
+}
+
+// Make the Active Service slide toggle smaller
+mat-slide-toggle {
+  transform: scale(0.8);
+  transform-origin: left center;
+
+  // Even smaller on mobile
+  @media (max-width: 480px) {
+    transform: scale(0.7);
+  }
+}
+
+.character-image-section {
+  min-height: 120px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.02);
+  margin-bottom: 8px;
+}
