@@ -17,5 +17,30 @@
   </head>
   <body>
     <app-root></app-root>
+
+    <!-- GitHub Pages SPA redirect script -->
+    <script>
+      // Single Page App for GitHub Pages
+      // https://github.com/rafgraph/spa-github-pages
+      // This script checks to see if a redirect is present and if so it converts
+      // the redirect into a normal route that Angular router can understand
+
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash,
+          );
+        }
+      })(window.location);
+    </script>
   </body>
 </html>
