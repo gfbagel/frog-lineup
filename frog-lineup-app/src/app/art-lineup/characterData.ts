@@ -58,7 +58,7 @@ export const characterList: Character[] = [
       statValue: 1,
       statModifier: StatMod.SUBTRACT,
     },
-    age: 60,
+    age: 9999,
     height: 23,
     serviceYrs: 1,
     rank: Rank.SERGEANT,
@@ -338,7 +338,7 @@ export const characterList: Character[] = [
     name: 'Grahm',
     description:
       'Magical megalomaniac who will do anything in exchange for a magical artifact...or even some wizard blood.',
-          ability: {
+    ability: {
       name: 'Contortionist',
       description: '',
       statAffecting: 'dexterity',
@@ -1080,7 +1080,7 @@ export const characterList: Character[] = [
     name: 'Takuku',
     description:
       'Head of DOUBT department. His many years on the front made him an expert of identifying and subduing paranormal intities.',
-          ability: {
+    ability: {
       name: '',
       description: 'Favored',
       statAffecting: 'luck',
