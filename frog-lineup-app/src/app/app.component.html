@@ -6,7 +6,10 @@
     </div>
     <mat-divider></mat-divider>
     <div class="section">
-      <app-sort-bar (sortChanged)="updateLineUpSort($event)"></app-sort-bar>
+      <app-sort-bar
+        (sortChanged)="updateLineUpSort($event)"
+        (characterClicked)="onCharacterClicked($event)"
+      ></app-sort-bar>
     </div>
     <mat-divider></mat-divider>
     <div class="art-lineup-section">

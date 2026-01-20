@@ -17,19 +17,42 @@
     </mat-button-toggle-group>
   </div>
 
-  <div class="stat-select-section">
-    <mat-form-field>
-      <mat-label>Specific Stat</mat-label>
-      <mat-select
-        [formControl]="sortingStatCtrl"
-        (selectionChange)="onSortStatChange()"
-      >
-        @for (stat of statsNames; track stat.value) {
-          <mat-option [value]="stat.value">{{ stat.label }}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
-  </div>
+  @if (isSortingByName) {
+    <div class="search-autocomplete-section">
+      <mat-form-field>
+        <mat-label>Search Character</mat-label>
+        <input
+          matInput
+          [formControl]="characterSearchCtrl"
+          [matAutocomplete]="auto"
+        />
+        <mat-autocomplete
+          #auto="matAutocomplete"
+          (optionSelected)="onCharacterSelected($event.option.value)"
+        >
+          @for (character of filteredCharacters | async; track character.img) {
+            <mat-option [value]="character.img">{{
+              character.name
+            }}</mat-option>
+          }
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+  } @else if (isSortingByStat) {
+    <div class="stat-select-section">
+      <mat-form-field>
+        <mat-label>Specific Stat</mat-label>
+        <mat-select
+          [formControl]="sortingStatCtrl"
+          (selectionChange)="onSortStatChange()"
+        >
+          @for (stat of statsNames; track stat.value) {
+            <mat-option [value]="stat.value">{{ stat.label }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+  }
 
   <div class="filter-section">
     <mat-slide-toggle

@@ -46,5 +46,19 @@ export class AppComponent {
     if (this.characterDetails) {
       this.characterDetails.character = event;
     }
+    // Also apply focus state on the art-lineup when character is selected
+    if (this.artLineup) {
+      // Find the character in displayedCharacterList by matching the img property
+      const displayedCharacter = this.artLineup.displayedCharacterList.find(
+        (char) => char.img === event.img,
+      );
+      if (displayedCharacter) {
+        const index =
+          this.artLineup.displayedCharacterList.indexOf(displayedCharacter);
+        if (index >= 0) {
+          this.artLineup.onCharacterClick(displayedCharacter, index, true);
+        }
+      }
+    }
   }
 }

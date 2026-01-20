@@ -7,7 +7,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "sim:ts": "npx ts-node --transpile-only tools/battle-sim.ts",
+    "sim:build": "npx tsc tools/battle-sim.ts --outDir tools/dist --module commonjs --target ES2019",
+    "sim": "npm run sim:build && node tools/dist/battle-sim.js"
   },
   "private": true,
   "dependencies": {

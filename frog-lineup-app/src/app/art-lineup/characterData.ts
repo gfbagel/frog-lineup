@@ -37,10 +37,10 @@ export const characterList: Character[] = [
       'A Keronian that often finds himself dragged through horrifying conspiracies. Adoptive father of a Nekonian.',
     stats: {
       strength: 3,
-      dexterity: 5,
+      dexterity: 4,
       constitution: 4,
       intelligence: 4,
-      wisdom: 3,
+      wisdom: 4,
       charisma: 3,
       luck: 2,
     },

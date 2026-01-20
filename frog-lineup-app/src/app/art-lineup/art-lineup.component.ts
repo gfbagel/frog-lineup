@@ -20,11 +20,12 @@ import { FastAverageColor } from 'fast-average-color';
 import { SortType } from '../sort-bar/sort-bar.component';
 import { CharacterSelectionService } from '../services/character-selection.service';
 import { SortStateService } from '../services/sort-state.service';
+import { NegativeOffsetDirective } from './art-negative-directive';
 
 @Component({
   selector: 'app-art-lineup',
   standalone: true,
-  imports: [],
+  imports: [NegativeOffsetDirective],
   templateUrl: './art-lineup.component.html',
   styleUrl: './art-lineup.component.scss',
 })
@@ -44,6 +45,7 @@ export class ArtLineupComponent implements AfterViewInit, OnDestroy {
 
   // Track focused character for touch devices
   private _focusedCharacterIndex: number | null = null;
+  private _isSettingFocus = false;
 
   // Cache for calculated heights to avoid recalculation during change detection
   private _heightCache = new Map<string, string>();
@@ -325,12 +327,9 @@ export class ArtLineupComponent implements AfterViewInit, OnDestroy {
   onImgLeave() {
     // If there's a focused character, restore its focus state; otherwise clear all
     if (this._focusedCharacterIndex !== null) {
-      this._setFocusState(this._focusedCharacterIndex);
+      this._setFocusState(this._focusedCharacterIndex, false);
     } else {
-      this.imgContainers?.forEach((imgDiv, idx) => {
-        imgDiv.nativeElement.classList.remove('not-hovered');
-        this.lines?.get(idx)?.nativeElement.classList.remove('focus-line');
-      });
+      this._clearVisualFocusState();
     }
   }
 
@@ -346,7 +345,11 @@ export class ArtLineupComponent implements AfterViewInit, OnDestroy {
     });
   }
 
-  onCharacterClick(character: Character, index: number) {
+  onCharacterClick(
+    character: Character,
+    index: number,
+    triggeredByParent = false,
+  ) {
     // Toggle focus state for touch devices
     if (this._focusedCharacterIndex === index) {
       // Clicking the same character unfocuses it
@@ -356,18 +359,36 @@ export class ArtLineupComponent implements AfterViewInit, OnDestroy {
       this._setFocusState(index);
     }
 
-    this.characterClicked.emit(character);
+    if (!triggeredByParent) {
+      this.characterClicked.emit(character);
+    }
   }
 
-  private _setFocusState(focusIdx: number) {
-    this._focusedCharacterIndex = focusIdx;
+  private _setFocusState(focusIdx: number, andScroll = true) {
+    if (this._isSettingFocus) {
+      return; // Prevent re-entrant calls
+    }
+    this._isSettingFocus = true;
 
-    // Notify the selection service with the focused character
-    const focusedCharacter = this.displayedCharacterList[focusIdx];
-    this.characterSelectionService.selectCharacter(focusedCharacter);
+    try {
+      this._focusedCharacterIndex = focusIdx;
 
-    // Apply the visual focus state
-    this._applyVisualFocusState(focusIdx);
+      // Notify the selection service with the focused character
+      const focusedCharacter = this.displayedCharacterList[focusIdx];
+      this.characterSelectionService.selectCharacter(focusedCharacter);
+
+      // Apply the visual focus state
+      this._applyVisualFocusState(focusIdx);
+      if (andScroll) {
+        this._scrollToFocusedCharacter(focusIdx);
+      }
+    } finally {
+      // Use setTimeout to reset the flag after the current execution context,
+      // allowing for one-time event-driven updates but preventing immediate loops.
+      setTimeout(() => {
+        this._isSettingFocus = false;
+      }, 0);
+    }
   }
   private _clearFocusState() {
     this._focusedCharacterIndex = null;

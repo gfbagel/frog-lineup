@@ -13,13 +13,16 @@ import { Character } from '../character-details/character-details.component';
       <h2 class="screen-title">Character Lineup</h2>
 
       <div class="sort-section">
-        <app-sort-bar (sortChanged)="onSortChanged($event)"></app-sort-bar>
+        <app-sort-bar
+          (sortChanged)="onSortChanged($event)"
+          (characterClicked)="onSortBarCharacterClicked($event)"
+        ></app-sort-bar>
       </div>
 
       <div class="lineup-section">
         <app-art-lineup
           #artLineup
-          (characterClicked)="onCharacterClicked($event)"
+          (characterClicked)="onArtLineupCharacterClicked($event)"
         >
         </app-art-lineup>
       </div>
@@ -75,7 +78,24 @@ export class MobileLineupComponent {
     this.artLineup?.sortCharacters(sortEvent);
   }
 
-  onCharacterClicked(character: Character) {
+  onSortBarCharacterClicked(character: Character) {
+    // Find the character in displayed list by matching the img property
+    const displayedCharacter = this.artLineup?.displayedCharacterList.find(
+      (char) => char.img === character.img,
+    );
+
+    if (displayedCharacter) {
+      const index =
+        this.artLineup?.displayedCharacterList.indexOf(displayedCharacter) ??
+        -1;
+      if (index >= 0) {
+        this.artLineup?.onCharacterClick(displayedCharacter, index, true);
+      }
+    }
+    this.characterClicked.emit(character);
+  }
+
+  onArtLineupCharacterClicked(character: Character) {
     this.characterClicked.emit(character);
   }
 }

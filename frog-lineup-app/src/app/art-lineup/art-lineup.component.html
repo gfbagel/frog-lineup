@@ -18,10 +18,7 @@
       <!-- <div style=""> -->
 
       <div #lineContainer class="line-container">
-        <div
-          class="line"
-          [style.margin-left]="-1 * imgContainer.offsetLeft + 'px'"
-        >
+        <div class="line" [appNegativeOffset]="imgContainer">
           <div
             #line
             class="second-line"
