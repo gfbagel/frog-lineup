@@ -1,191 +1,106 @@
 import { characterList } from '../src/app/art-lineup/characterData';
-import {
-  Character,
-  Stats,
-} from '../src/app/character-details/character-details.component';
+import { Character } from '../src/app/character-details/character-details.component';
+import { Combatant } from './Combatant';
 
-type Attributes = Record<keyof Stats, Atrribute>;
-
-const PHYS_ATK_KEYS: (keyof Stats)[] = ['strength', 'dexterity'];
-type PhysicalAttackStat = (typeof PHYS_ATK_KEYS)[number];
-
-enum STATUS {
-  ADVANTAGE,
-  DISADVANTAGE,
+interface Matchup {
+  id: string;
+  characterA: Character;
+  characterB: Character;
 }
 
-const DICE_SIDES = 10;
+function generateMatchups(roster: Character[]): Matchup[] {
+  const queue: Matchup[] = [];
 
-class Atrribute {
-  get mod(): number {
-    return this.current - 3;
-  }
+  for (let i = 0; i < roster.length; i++) {
+    for (let j = i + 1; j < roster.length; j++) {
+      const p1 = roster[i];
+      const p2 = roster[j];
 
-  increase(amount: number): void {
-    this.current += amount;
+      queue.push({
+        id: `${p1.name} vs ${p2.name}`,
+        characterA: p1,
+        characterB: p2,
+      });
+    }
   }
-  decrease(amount: number): void {
-    this.current -= amount;
-  }
-  reset(): void {
-    this.current = this.base;
-  }
-
-  constructor(
-    public base: number,
-    public current: number = base,
-  ) {}
+  return queue;
 }
 
-//Rolls a 1DX and returns the result. Defaults to DICE_SIDES if no value provided
-function roll1DX(maxDiceVal: number = DICE_SIDES): number {
-  return Math.floor(Math.random() * maxDiceVal) + 1;
-}
+// 2. The Execution Loop
+function runSimulation(roster: Character[], roundsPerMatchup = 100) {
+  const schedule = generateMatchups(roster);
+  const finalResults: Record<string, { winner: string }[]> = {};
 
-class Combatant {
-  private readonly _characterMeta: Character;
-  protected stats: Attributes;
+  console.log(`Simulating ${schedule.length} unique matchups...`);
 
-  private _damageTaken = 0;
-  private _manaSpent = 0;
-  private _statusEffects: STATUS[] = [];
+  schedule.forEach((match) => {
+    finalResults[match.id] = [];
 
-  constructor(character: Character) {
-    this._characterMeta = character;
+    for (let r = 0; r < roundsPerMatchup; r++) {
+      const fighter1 = new Combatant(match.characterA);
+      const fighter2 = new Combatant(match.characterB);
 
-    const baseStatBlock = {
-      strength: new Atrribute(character.stats.strength),
-      dexterity: new Atrribute(character.stats.dexterity),
-      constitution: new Atrribute(character.stats.constitution),
-      intelligence: new Atrribute(character.stats.intelligence),
-      wisdom: new Atrribute(character.stats.wisdom),
-      charisma: new Atrribute(character.stats.charisma),
-      luck: new Atrribute(character.stats.luck),
-    };
-
-    this.stats = { ...baseStatBlock };
-  }
-
-  get maxHP(): number {
-    return 10 + this.stats.constitution.mod + this.stats.wisdom.mod;
-  }
-  get currentHP(): number {
-    return this.maxHP - this._damageTaken;
-  }
-
-  get maxMP(): number {
-    return (
-      5 +
-      Math.max(
-        this.stats.intelligence.mod,
-        this.stats.charisma.mod,
-        this.stats.wisdom.mod,
-      )
-    );
-  }
-  get currentMP(): number {
-    return this.maxMP - this._manaSpent;
-  }
-
-  get AC(): number {
-    return 10 + this.stats.dexterity.mod;
-  }
-
-  isDown() {
-    return this.currentHP <= 0;
-  }
-
-  takeDamage(amount: number) {
-    this._damageTaken += amount;
-  }
-
-  heal(amount: number) {
-    //no overheal
-    this._damageTaken = Math.max(0, this._damageTaken - amount);
-  }
-
-  applyStatusEffect(status: STATUS) {
-    this._statusEffects.push(status);
-  }
-
-  performPhysicalAttack(opponent: Combatant, stat: PhysicalAttackStat) {
-    const hitRoll = roll1DX();
-    const hitMod = this.getAttackHitMod(stat);
-    const totalHit = hitRoll + hitMod;
-
-    if (this.isCritFail(hitRoll)) {
-      this.takeDamage(1);
-      this.applyStatusEffect(STATUS.DISADVANTAGE);
+      const result = simulateMatchup(fighter1, fighter2);
+      finalResults[match.id].push({ winner: result.winner });
     }
-    //Should there be a situation where both crit and crit fail apply? Or crit but a miss?
-    if (this.isCrit(hitRoll)) {
-      this.applyStatusEffect(STATUS.ADVANTAGE);
-    }
-
-    if (totalHit >= opponent.AC) {
-      let totalDmg = this.getAttackDmgBonus(hitRoll, stat);
-      if (this.isCrit(hitRoll)) {
-        totalDmg += 1;
-      }
-
-      opponent.takeDamage(totalDmg);
-    }
-  }
-
-  getAttackHitMod(attackingStat: keyof Stats): number {
-    return this.stats[attackingStat].mod;
-  }
-
-  //applies damage bonus based on hitRoll and attacking stat
-  getAttackDmgBonus(roll: number, attackingStat: keyof Stats): number {
-    //effective +30% +1 damage increase depending on hit (i.e. 1-3 = +1, 4-6 = +2, 7-9 = +3, 10 = +4)
-    let dmgBonus = Math.floor((roll - 1) / 3) + 1;
-
-    //currently only strength affects damage
-    if (attackingStat === 'strength') {
-      dmgBonus += this.stats.strength.mod;
-    }
-
-    return dmgBonus;
-  }
-
-  isCrit(roll: number): boolean {
-    return roll + this.stats.luck.mod > DICE_SIDES;
-  }
-  isCritFail(roll: number): boolean {
-    return roll <= -1 * this.stats.luck.mod;
-  }
-
-  getLuckDmgBonus(hitRoll: number): number {
-    if (
-      this.stats.luck.mod > 0 &&
-      hitRoll <= DICE_SIDES + 1 - this.stats.luck.mod
-    ) {
-      return 1;
-    } else {
-      return 0;
-    }
-  }
-}
-
-function runSimulation(roundsPerMatchup = 100) {
-  const combatants: Record<string, Combatant> = {};
-
-  characterList.forEach((charData) => {
-    combatants[charData.img] = new Combatant(charData);
   });
 
-  // Run matchups
-  for (let i = 0; i < characterList.length; i++) {
-    for (let j = i + 1; j < characterList.length; j++) {
-      const charA = combatants[characterList[i].img];
-      const charB = combatants[characterList[j].img];
-      for (let round = 0; round < roundsPerMatchup; round++) {
-        // Reset combatants' stats
-        // Simulate fight
-      }
-    }
+  return finalResults;
+}
+
+interface FightLog {
+  winner: string;
+  turns: number;
+  log: string[];
+}
+
+function simulateMatchup(
+  combatant1: Combatant,
+  combatant2: Combatant,
+): FightLog {
+  const fightLog: string[] = [];
+  let turnCount = 0;
+  const MAX_TURNS = 100;
+
+  // 50/50 Coin flip for who acts first
+  let p1 = Math.random() > 0.5 ? combatant1 : combatant2;
+  let p2 = p1 === combatant1 ? combatant2 : combatant1;
+
+  //combat loop
+  while (!p1.vitals.isDown && !p2.vitals.isDown && turnCount < MAX_TURNS) {
+    turnCount++;
+    fightLog.push(`Turn ${turnCount}: ${p1.name} acting...`);
+    p1.onTurnStart();
+    if (p1.vitals.isDown) break;
+    takeTurn(p1, p2, fightLog);
+    if (p2.vitals.isDown) break;
+    fightLog.push(`Turn ${turnCount}: ${p2.name} acting...`);
+    p2.onTurnStart();
+    if (p2.vitals.isDown) break;
+    takeTurn(p2, p1, fightLog);
+  }
+
+  const winner =
+    p1.vitals.isDown && !p2.vitals.isDown
+      ? p2.name
+      : p2.vitals.isDown && !p1.vitals.isDown
+        ? p1.name
+        : 'DRAW';
+
+  return { winner, turns: turnCount, log: fightLog };
+}
+
+function takeTurn(actor: Combatant, target: Combatant, log: string[]) {
+  // Simple AI: 25% chance to use MP if available, otherwise Attack
+  const roll = Math.random();
+
+  if (actor.vitals.currentMP >= 1 && roll < 0.25) {
+    log.push(`${actor.name} casts MP Blast!`);
+    actor.performMPAction('MPBLAST', target);
+  } else {
+    actor.performPhysicalAttack(target, 'strength');
+    log.push(`${actor.name} attacks...`);
   }
 }
 
-runSimulation();
+runSimulation(characterList);
